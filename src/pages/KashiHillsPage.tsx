@@ -23,6 +23,7 @@ import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { LazyImage } from '../components/common/LazyImage';
 import { SEOHead } from '../components/common/SEOHead';
 import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
+import { AnimatedCounter } from '../components/common/AnimatedCounter';
 
 interface KashiHillsPageProps {
   onOpenScheduleModal: () => void;
@@ -113,7 +114,9 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
                   <span className="stat-label">Residences & Shops</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-value">596–617</span>
+                  <span className="stat-value">
+                    <AnimatedCounter value="596–617" duration={1600} />
+                  </span>
                   <span className="stat-label">Sq.Ft. Carpet</span>
                 </div>
                 <div className="stat-item">

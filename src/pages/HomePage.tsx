@@ -8,6 +8,7 @@ import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { LazyImage } from '../components/common/LazyImage';
 import { SEOHead } from '../components/common/SEOHead';
 import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
+import { AnimatedCounter } from '../components/common/AnimatedCounter';
 
 interface HomePageProps {
   onOpenScheduleModal: () => void;
@@ -119,7 +120,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
                     }}
                   >
                     <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', fontWeight: 700, color: 'var(--kashi-teal)', marginBottom: '6px' }}>
-                      {stat.number}
+                      <AnimatedCounter value={stat.number} duration={1600} />
                     </div>
                     <div style={{ fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--kashi-muted)', fontWeight: 600 }}>
                       {stat.label}
