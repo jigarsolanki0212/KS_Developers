@@ -111,7 +111,7 @@ export const GoldCorner: React.FC<{
   return <div style={styles} aria-hidden="true" />;
 };
 
-// 5. Architectural Frame Container
+// 5. Architectural Picture Frame with Gold Precision Corners
 export const ArchitecturalFrame: React.FC<{
   children: React.ReactNode;
   className?: string;
@@ -122,40 +122,43 @@ export const ArchitecturalFrame: React.FC<{
       className={`architectural-frame ${className}`}
       style={{
         position: 'relative',
-        border: '1px solid var(--kashi-border)',
         background: 'var(--kashi-white)',
-        borderRadius: 'var(--radius-sm)',
+        border: '1px solid var(--kashi-border)',
+        boxShadow: 'var(--shadow-md)',
         overflow: 'hidden',
-        boxShadow: 'var(--shadow-sm)',
         ...style
       }}
     >
+      <GoldCorner position="top-left" size={14} />
       <GoldCorner position="top-right" size={14} />
       <GoldCorner position="bottom-left" size={14} />
+      <GoldCorner position="bottom-right" size={14} />
       {children}
     </div>
   );
 };
 
-// 6. Editorial Section Divider
-export const EditorialDivider: React.FC<{ style?: React.CSSProperties }> = ({ style = {} }) => {
+// 6. Vector Instagram Icon
+export const InstagramIcon: React.FC<{
+  size?: number;
+  color?: string;
+  style?: React.CSSProperties;
+}> = ({ size = 16, color = 'currentColor', style = {} }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '12px',
-        margin: '40px 0',
-        ...style
-      }}
-      aria-hidden="true"
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: 'inline-block', verticalAlign: 'middle', ...style }}
     >
-      <div style={{ height: '1px', flex: 1, background: 'var(--kashi-border)' }} />
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-        <polygon points="6,1 11,11 1,11" fill="var(--kashi-gold)" />
-      </svg>
-      <div style={{ height: '1px', flex: 1, background: 'var(--kashi-border)' }} />
-    </div>
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
   );
 };

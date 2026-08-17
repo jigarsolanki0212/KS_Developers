@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MessageCircle, MapPin, Calendar, CheckCircle2, ShieldCheck, Phone, Building } from 'lucide-react';
 import { corporateData, kashiHillsProject } from '../config/projects';
-import { SectionEyebrow, GoldLine, KashiPattern } from '../components/common/Decorative';
+import { SectionEyebrow, GoldLine, KashiPattern, InstagramIcon } from '../components/common/Decorative';
 import { SEOHead } from '../components/common/SEOHead';
 
 export const ContactPage: React.FC = () => {
@@ -251,6 +251,23 @@ export const ContactPage: React.FC = () => {
                         style={{ fontSize: '0.96rem', color: 'var(--kashi-teal)', fontWeight: 600 }}
                       >
                         Chat with Project Desk →
+                      </a>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
+                    <InstagramIcon size={22} color="#E1306C" style={{ flexShrink: 0 }} />
+                    <div>
+                      <span style={{ fontSize: '0.74rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#E1306C', display: 'block', fontWeight: 700 }}>
+                        Official Instagram
+                      </span>
+                      <a
+                        href={corporateData.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ fontSize: '0.96rem', color: 'var(--kashi-teal)', fontWeight: 600 }}
+                      >
+                        {corporateData.instagramHandle} (Kashi Group) →
                       </a>
                     </div>
                   </div>

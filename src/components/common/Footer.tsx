@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, MessageCircle, ExternalLink, ShieldCheck, Download
 import { corporateData, kashiHillsProject } from '../../config/projects';
 import { kashiHillsAssets } from '../../config/assets';
 import { BrandLogo } from './BrandLogo';
+import { InstagramIcon } from './Decorative';
 
 export const Footer: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ export const Footer: React.FC = () => {
             <p style={{ fontSize: '0.95rem', color: '#C2CCD0', marginBottom: '24px', lineHeight: '1.7' }}>
               A design-forward real estate developer in Ahmedabad, dedicated to creating enduring residential spaces rooted in architectural clarity, structural integrity, and total transparency.
             </p>
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <a
                 href={`https://wa.me/${corporateData.whatsapp}?text=${encodeURIComponent('Hello K.S. Developers, I would like to inquire about your residential projects.')}`}
                 target="_blank"
@@ -28,7 +29,19 @@ export const Footer: React.FC = () => {
                 style={{ padding: '8px 14px', fontSize: '0.8rem' }}
               >
                 <MessageCircle size={14} color="#25D366" />
-                <span>WhatsApp Desk</span>
+                <span>WhatsApp</span>
+              </a>
+
+              <a
+                href={corporateData.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-dark-secondary"
+                style={{ padding: '8px 14px', fontSize: '0.8rem', color: '#E1306C', borderColor: 'rgba(225, 48, 108, 0.35)' }}
+                aria-label="Follow Kashi Group on Instagram"
+              >
+                <InstagramIcon size={14} color="#E1306C" />
+                <span style={{ color: '#FFFFFF' }}>@kashi__group</span>
               </a>
             </div>
           </div>

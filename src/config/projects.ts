@@ -413,6 +413,8 @@ export const corporateData = {
   phone: '+91 97247 98899',
   phoneSecondary: '+91 814 1111 815',
   whatsapp: '919724798899',
+  instagram: 'https://www.instagram.com/kashi__group/',
+  instagramHandle: '@kashi__group',
   address: 'Near Skyway Elegance, Behind Shivdhara Campus, Naroda - Dehgam Road, Enasan, Ahmedabad - 382330',
   pillars: [
     {
