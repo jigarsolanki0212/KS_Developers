@@ -25,14 +25,6 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
   min-height: 100dvh;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-img {
-  -webkit-user-drag: none;
 }
 
 img, svg, video {
