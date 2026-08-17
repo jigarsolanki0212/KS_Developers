@@ -1,4 +1,4 @@
-/* 1. Header & Navigation (Dynamic Transparent → Warm Ivory) */
+/* 1. Header & Navigation (Luxury Solid Dark Teal Glass Everywhere) */
 .header-nav {
   position: fixed;
   top: 0;
@@ -6,24 +6,21 @@
   right: 0;
   height: var(--header-height);
   z-index: 1000;
-  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.header-nav.transparent-dark {
-  background: linear-gradient(180deg, rgba(11, 36, 45, 0.75) 0%, rgba(11, 36, 45, 0.3) 70%, transparent 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.header-nav.scrolled {
-  background: rgba(247, 245, 239, 0.98) !important;
+  background: rgba(16, 52, 64, 0.98) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--kashi-border) !important;
-  box-shadow: 0 4px 20px rgba(23, 63, 78, 0.08);
+  border-bottom: 1px solid rgba(214, 181, 106, 0.28) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.header-nav.transparent-dark,
+.header-nav.scrolled {
+  background: rgba(16, 52, 64, 0.98) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(214, 181, 106, 0.28) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
 }
 
 .nav-container {
@@ -58,7 +55,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   transition: color var(--transition-fast);
   position: relative;
   padding: 6px 0;
@@ -76,19 +73,9 @@
   border-radius: 2px;
 }
 
-/* Scrolled Nav Links on Warm Ivory Background: Deep Teal Color */
-.header-nav.scrolled .nav-link {
-  color: var(--kashi-teal) !important;
-}
-
 .nav-link:hover,
 .nav-link.active {
   color: var(--kashi-gold-light) !important;
-}
-
-.header-nav.scrolled .nav-link:hover,
-.header-nav.scrolled .nav-link.active {
-  color: var(--kashi-gold-dark) !important;
 }
 
 .nav-link.active::after {
@@ -98,21 +85,13 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--kashi-gold);
-}
-
-.header-nav.scrolled .nav-link.active::after {
-  background-color: var(--kashi-gold-dark);
+  background-color: var(--kashi-gold-light);
 }
 
 .mobile-menu-btn {
   display: none;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   cursor: pointer;
-}
-
-.header-nav.scrolled .mobile-menu-btn {
-  color: var(--kashi-teal);
 }
 
 @media (max-width: 991px) {

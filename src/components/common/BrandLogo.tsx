@@ -9,12 +9,12 @@ interface BrandLogoProps {
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   isScrolled = false,
-  theme = 'auto',
+  theme = 'dark',
   size = 'md',
   className = ''
 }) => {
-  // Determine text colors based on state
-  const isDarkBg = theme === 'dark' || (theme === 'auto' && !isScrolled);
+  // Always dark background for the luxury dark teal navbar
+  const isLightBg = theme === 'light' && !isScrolled;
 
   const emblemHeight = size === 'sm' ? 36 : size === 'lg' ? 56 : 46;
   const titleSize = size === 'sm' ? '1.05rem' : size === 'lg' ? '1.55rem' : '1.25rem';
@@ -72,7 +72,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           }}
         />
 
-        {/* Tagline: 100% Readable, High-Contrast & Scalable */}
+        {/* Tagline: 100% Crisp White & Readable */}
         <div
           style={{
             fontFamily: "var(--font-sans), 'Plus Jakarta Sans', sans-serif",
@@ -81,7 +81,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             lineHeight: 1.2,
-            color: isDarkBg ? '#FFFFFF' : 'var(--kashi-teal)',
+            color: isLightBg ? 'var(--kashi-teal)' : '#FFFFFF',
             transition: 'color 0.2s ease'
           }}
         >

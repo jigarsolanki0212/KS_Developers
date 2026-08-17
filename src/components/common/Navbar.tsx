@@ -15,15 +15,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only switch to ivory background when user has scrolled past the hero section (280px+)
-      if (window.scrollY > 260) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Check initial state
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -36,12 +34,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
     <>
       <header className={`header-nav ${isScrolled ? 'scrolled' : 'transparent-dark'}`}>
         <div className="container nav-container">
-          {/* Brand Logo with dynamic contrast */}
+          {/* Brand Logo with 100% Readable White Tagline & 3D Gold Emblem */}
           <Link to="/" className="brand-logo" aria-label="K.S. Developers Home">
-            <BrandLogo isScrolled={isScrolled} size="md" />
+            <BrandLogo theme="dark" size="md" />
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links (Always Crisp White & Gold) */}
           <nav aria-label="Primary Navigation">
             <ul className="nav-links">
               <li>
@@ -91,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Link
               to="/projects/kashi-hills#digital-brochure"
-              className={isScrolled ? 'btn btn-kashi-secondary' : 'btn btn-dark-secondary'}
+              className="btn btn-dark-secondary"
               style={{ padding: '9px 16px', fontSize: '0.8rem' }}
               onClick={() => {
                 const el = document.getElementById('digital-brochure');
@@ -104,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
 
             <button
               onClick={onOpenScheduleModal}
-              className={isScrolled ? 'btn btn-kashi-primary nav-cta-btn' : 'btn btn-kashi-gold nav-cta-btn'}
+              className="btn btn-kashi-gold nav-cta-btn"
               aria-label="Schedule a Site Visit"
             >
               <Calendar size={15} />
