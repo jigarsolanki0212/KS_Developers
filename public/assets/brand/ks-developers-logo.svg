@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 64" fill="none">
+  <!-- Official K.S. Developers Golden 3D Towers Emblem -->
+  <g transform="translate(4, 4)">
+    <!-- Tower 1 Left -->
+    <path d="M4 36L12 18L18 20L18 52L10 50L4 36Z" fill="url(#ks-gold-1)"/>
+    <!-- Tower 2 Center Main High -->
+    <path d="M14 16L24 4L32 6L32 54L22 52L14 16Z" fill="url(#ks-gold-2)"/>
+    <!-- Tower 3 Right -->
+    <path d="M28 20L36 10L42 12L42 54L34 52L28 20Z" fill="url(#ks-gold-3)"/>
+    <!-- Base curve -->
+    <path d="M2 48C14 54 34 56 46 50" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="64" y="32" font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="700" letter-spacing="3.5" fill="#C5A880">K.S. DEVELOPERS</text>
+  <text x="66" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="600" letter-spacing="4.5" fill="#8E95A0">BUILDING SPACES · CRAFTING STORIES</text>
+
+  <defs>
+    <linearGradient id="ks-gold-1" x1="4" y1="18" x2="18" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5C79E"/>
+      <stop offset="1" stop-color="#A57A42"/>
+    </linearGradient>
+    <linearGradient id="ks-gold-2" x1="14" y1="4" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCE1BA"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#8F632D"/>
+    </linearGradient>
+    <linearGradient id="ks-gold-3" x1="28" y1="10" x2="42" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5C79E"/>
+      <stop offset="1" stop-color="#A57A42"/>
+    </linearGradient>
+  </defs>
+</svg>

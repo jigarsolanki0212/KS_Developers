@@ -1,0 +1,73 @@
+:root {
+  /* KASHI SIGNATURE — Core Color System */
+  --kashi-teal: #173F4E;
+  --kashi-teal-dark: #103440;
+  --kashi-teal-deep: #0B242D;
+  --kashi-teal-soft: #245566;
+  --kashi-teal-subtle: rgba(23, 63, 78, 0.08);
+
+  --kashi-gold: #D6B56A;
+  --kashi-gold-light: #E4C985;
+  --kashi-gold-dark: #B9984D;
+  --kashi-gold-muted: rgba(214, 181, 106, 0.25);
+  --kashi-gold-glow: rgba(214, 181, 106, 0.15);
+
+  --kashi-ivory: #F7F5EF;
+  --kashi-ivory-warm: #F0EDE4;
+  --kashi-ivory-light: #FAF9F5;
+  --kashi-white: #FFFFFF;
+
+  --kashi-charcoal: #17252B;
+  --kashi-charcoal-deep: #0D161A;
+  --kashi-muted: #68757A;
+  --kashi-muted-light: #8E9CA2;
+
+  --kashi-border: rgba(23, 63, 78, 0.14);
+  --kashi-border-gold: rgba(214, 181, 106, 0.35);
+  --kashi-border-dark: rgba(255, 255, 255, 0.12);
+
+  /* Semantic Theme Mappings */
+  --bg-primary: var(--kashi-ivory);
+  --bg-secondary: var(--kashi-ivory-warm);
+  --bg-surface: var(--kashi-white);
+  --bg-card: var(--kashi-white);
+  --bg-teal: var(--kashi-teal);
+  --bg-teal-dark: var(--kashi-teal-dark);
+
+  --text-primary: var(--kashi-charcoal);
+  --text-secondary: var(--kashi-muted);
+  --text-muted: #8E9CA2;
+  --text-on-dark: var(--kashi-ivory);
+  --text-gold: var(--kashi-gold);
+
+  --border-subtle: var(--kashi-border);
+  --border-gold: var(--kashi-border-gold);
+
+  /* Typography */
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout & Spacing */
+  --header-height: 84px;
+  --section-spacing: 96px;
+  --section-spacing-sm: 64px;
+  --container-max: 1320px;
+
+  /* Architectural Radii (Sharp/Medium) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(23, 63, 78, 0.06);
+  --shadow-md: 0 8px 24px rgba(23, 63, 78, 0.08);
+  --shadow-lg: 0 16px 40px rgba(23, 63, 78, 0.12);
+  --shadow-teal: 0 12px 36px rgba(16, 52, 64, 0.35);
+
+  /* Transitions */
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}

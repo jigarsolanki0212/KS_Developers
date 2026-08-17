@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" fill="none">
+  <!-- Exact K.S. Developers Official Brochure Logo (Horizontal for Navigation & Headers - Dark Theme) -->
+  <g transform="translate(6, 4)">
+    <!-- 1. Stylized 3D Faceted Towers -->
+    <!-- Left Tower -->
+    <path d="M12 44L12 18L22 10L22 46Z" fill="url(#t-left-w)"/>
+    <path d="M22 10L28 14L28 48L22 46Z" fill="url(#t-left-shade-w)"/>
+
+    <!-- Middle Tallest Tower -->
+    <path d="M26 48L26 8L38 2L38 52Z" fill="url(#t-mid-w)"/>
+    <path d="M38 2L46 6L46 54L38 52Z" fill="url(#t-mid-shade-w)"/>
+
+    <!-- Right Tower -->
+    <path d="M44 54L44 20L54 14L54 56Z" fill="url(#t-right-w)"/>
+    <path d="M54 14L60 17L60 58L54 56Z" fill="url(#t-right-shade-w)"/>
+
+    <!-- 2. Latticed Globe Grid at Base -->
+    <ellipse cx="36" cy="54" rx="26" ry="10" fill="none" stroke="#D6B56A" stroke-width="1.2" stroke-dasharray="2,2"/>
+    <path d="M16 54C16 62 56 62 56 54" fill="none" stroke="#D6B56A" stroke-width="1.2"/>
+    <path d="M26 50C26 60 46 60 46 50" fill="none" stroke="#D6B56A" stroke-width="1"/>
+    <path d="M36 46L36 64" stroke="#D6B56A" stroke-width="1"/>
+
+    <!-- 3. Swooping Orbital Ring -->
+    <path d="M6 46C10 36 62 38 68 50C70 54 60 58 48 59C32 60 10 56 6 46Z" fill="none" stroke="url(#ring-gold-w)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M10 46C18 39 56 41 62 50" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography: High-Contrast, Ultra-Sharp & Perfectly Legible -->
+  <!-- "K.S." in Champagne Gold, "DEVELOPERS" in Crisp Ivory White -->
+  <g transform="translate(86, 0)">
+    <text x="0" y="40" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="27" font-weight="700" letter-spacing="3.2">
+      <tspan fill="#E4C985">K.S. </tspan>
+      <tspan fill="#FFFFFF">DEVELOPERS</tspan>
+    </text>
+
+    <!-- Decorative Underline with Center Diamond -->
+    <path d="M0 48L242 48" stroke="#D6B56A" stroke-width="1.2" opacity="0.8"/>
+    <polygon points="121,45 125,48 121,51 117,48" fill="#E4C985"/>
+
+    <!-- Tagline: Crisp, Legible, High Contrast -->
+    <text x="2" y="64" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="9.5" font-weight="700" letter-spacing="3.2" fill="#DDE5E8">
+      BUILDING SPACES · CRAFTING STORIES
+    </text>
+  </g>
+
+  <defs>
+    <!-- Gradients for 3D Tower Facets -->
+    <linearGradient id="t-left-w" x1="12" y1="18" x2="22" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D8E2E6"/>
+    </linearGradient>
+    <linearGradient id="t-left-shade-w" x1="22" y1="10" x2="28" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B0BFC5"/>
+      <stop offset="1" stop-color="#80939B"/>
+    </linearGradient>
+    <linearGradient id="t-mid-w" x1="26" y1="2" x2="38" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E8EEF0"/>
+    </linearGradient>
+    <linearGradient id="t-mid-shade-w" x1="38" y1="2" x2="46" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CAD7DC"/>
+      <stop offset="1" stop-color="#95A7AF"/>
+    </linearGradient>
+    <linearGradient id="t-right-w" x1="44" y1="14" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2F6F7"/>
+      <stop offset="1" stop-color="#D0DCDE"/>
+    </linearGradient>
+    <linearGradient id="t-right-shade-w" x1="54" y1="14" x2="60" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A5B7BE"/>
+      <stop offset="1" stop-color="#738790"/>
+    </linearGradient>
+
+    <!-- Ring Gradient -->
+    <linearGradient id="ring-gold-w" x1="6" y1="36" x2="68" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E4C985"/>
+      <stop offset="0.5" stop-color="#D6B56A"/>
+      <stop offset="1" stop-color="#9E7C35"/>
+    </linearGradient>
+  </defs>
+</svg>

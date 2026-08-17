@@ -1,0 +1,373 @@
+/* ========================================================
+   KASHI SIGNATURE — Core Global Styles & Typography
+   Theme: Warm Ivory (60-70%) + Deep Teal (20-30%) + Champagne Gold (5-10%)
+   ======================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--kashi-ivory);
+  color: var(--kashi-charcoal);
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  outline: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--kashi-gold);
+  outline-offset: 3px;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--kashi-gold);
+  outline-offset: 3px;
+}
+
+/* ========================================================
+   Typography
+   ======================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.22;
+  color: var(--kashi-charcoal);
+  letter-spacing: -0.01em;
+}
+
+.text-teal {
+  color: var(--kashi-teal);
+}
+
+.text-gold {
+  color: var(--kashi-gold-dark);
+}
+
+.text-ivory {
+  color: var(--kashi-ivory);
+}
+
+.text-muted {
+  color: var(--kashi-muted);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ========================================================
+   Section Rhythm & Theme Alternation
+   ======================================================== */
+.section {
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--section-spacing);
+  position: relative;
+}
+
+.section-ivory {
+  background-color: var(--kashi-ivory);
+  color: var(--kashi-charcoal);
+}
+
+.section-ivory-warm {
+  background-color: var(--kashi-ivory-warm);
+  color: var(--kashi-charcoal);
+}
+
+.section-white {
+  background-color: var(--kashi-white);
+  color: var(--kashi-charcoal);
+}
+
+.section-teal {
+  background-color: var(--kashi-teal);
+  color: var(--kashi-ivory);
+}
+
+.section-teal h1,
+.section-teal h2,
+.section-teal h3,
+.section-teal h4 {
+  color: #FFFFFF;
+}
+
+.section-teal-dark {
+  background-color: var(--kashi-teal-dark);
+  color: var(--kashi-ivory);
+}
+
+.section-teal-dark h1,
+.section-teal-dark h2,
+.section-teal-dark h3,
+.section-teal-dark h4 {
+  color: #FFFFFF;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: 44px;
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header.text-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  margin-bottom: 14px;
+}
+
+.section-title .highlight {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--kashi-gold);
+  font-weight: 400;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--kashi-muted);
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+.section-teal .section-subtitle,
+.section-teal-dark .section-subtitle {
+  color: #C2CCD0;
+}
+
+/* ========================================================
+   Kashi Signature Buttons
+   ======================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  position: relative;
+  text-decoration: none;
+}
+
+.btn-primary,
+.btn-kashi-primary {
+  background-color: var(--kashi-teal);
+  color: var(--kashi-ivory);
+  border: 1px solid var(--kashi-teal);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover,
+.btn-kashi-primary:hover {
+  background-color: var(--kashi-teal-dark);
+  border-color: var(--kashi-gold);
+  color: var(--kashi-gold-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary,
+.btn-kashi-secondary {
+  background: transparent;
+  color: var(--kashi-teal);
+  border: 1px solid var(--kashi-border);
+}
+
+.btn-secondary:hover,
+.btn-kashi-secondary:hover {
+  border-color: var(--kashi-gold);
+  color: var(--kashi-gold-dark);
+  background: rgba(214, 181, 106, 0.08);
+  transform: translateY(-2px);
+}
+
+.btn-kashi-gold {
+  background-color: var(--kashi-gold);
+  color: var(--kashi-teal-deep);
+  border: 1px solid var(--kashi-gold);
+  font-weight: 700;
+}
+
+.btn-kashi-gold:hover {
+  background-color: var(--kashi-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214, 181, 106, 0.35);
+}
+
+.btn-dark-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  border: 1px solid rgba(214, 181, 106, 0.4);
+}
+
+.btn-dark-secondary:hover {
+  background: rgba(214, 181, 106, 0.18);
+  border-color: var(--kashi-gold);
+  color: var(--kashi-gold-light);
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   Form Inputs (Warm Ivory & Gold Focus)
+   ======================================================== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kashi-teal);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--kashi-white);
+  border: 1px solid var(--kashi-border);
+  border-radius: var(--radius-sm);
+  color: var(--kashi-charcoal);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--kashi-gold);
+  box-shadow: 0 0 0 3px rgba(214, 181, 106, 0.15);
+  background: var(--kashi-white);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23173F4E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-spacing: 64px;
+    --section-spacing-sm: 44px;
+  }
+  .section-title {
+    font-size: 2.1rem;
+  }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <!-- Official Kashi Hills Stylized Logo with Double Peak Chevron -->
+  <text x="2" y="32" font-family="'Cinzel', 'Playfair Display', serif" font-size="28" font-weight="700" letter-spacing="5" fill="#C5A880">KASHI</text>
+  
+  <!-- Stylized Geometric Peak Motif -->
+  <g transform="translate(138, 10)">
+    <polygon points="12,0 24,18 0,18" fill="#C5A880"/>
+    <polygon points="12,6 20,18 4,18" fill="#0A0C0F"/>
+    <polygon points="12,9 17,17 7,17" fill="#C5A880"/>
+    <polygon points="26,4 34,18 18,18" fill="#C5A880" opacity="0.85"/>
+  </g>
+  
+  <text x="76" y="52" font-family="'Playfair Display', serif" font-size="24" font-style="italic" font-weight="600" letter-spacing="2" fill="#C5A880">Hills</text>
+</svg>

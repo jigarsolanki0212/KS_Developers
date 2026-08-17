@@ -1,0 +1,215 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Calendar, BookOpen } from 'lucide-react';
+import { corporateData } from '../../config/projects';
+import { BrandLogo } from './BrandLogo';
+
+interface NavbarProps {
+  onOpenScheduleModal: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Only switch to ivory background when user has scrolled past the hero section (280px+)
+      if (window.scrollY > 260) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Check initial state
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  return (
+    <>
+      <header className={`header-nav ${isScrolled ? 'scrolled' : 'transparent-dark'}`}>
+        <div className="container nav-container">
+          {/* Brand Logo with dynamic contrast */}
+          <Link to="/" className="brand-logo" aria-label="K.S. Developers Home">
+            <BrandLogo isScrolled={isScrolled} size="md" />
+          </Link>
+
+          {/* Desktop Navigation Links */}
+          <nav aria-label="Primary Navigation">
+            <ul className="nav-links">
+              <li>
+                <Link
+                  to="/"
+                  className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/projects"
+                  className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`}
+                >
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/projects/kashi-hills"
+                  className={`nav-link ${location.pathname.startsWith('/projects/kashi-hills') ? 'active' : ''}`}
+                >
+                  Kashi Hills (Flagship)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Desktop Actions */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Link
+              to="/projects/kashi-hills#digital-brochure"
+              className={isScrolled ? 'btn btn-kashi-secondary' : 'btn btn-dark-secondary'}
+              style={{ padding: '9px 16px', fontSize: '0.8rem' }}
+              onClick={() => {
+                const el = document.getElementById('digital-brochure');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <BookOpen size={14} />
+              <span>Brochure</span>
+            </Link>
+
+            <button
+              onClick={onOpenScheduleModal}
+              className={isScrolled ? 'btn btn-kashi-primary nav-cta-btn' : 'btn btn-kashi-gold nav-cta-btn'}
+              aria-label="Schedule a Site Visit"
+            >
+              <Calendar size={15} />
+              <span>Book Visit</span>
+            </button>
+
+            {/* Mobile Menu Trigger */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="mobile-menu-btn"
+              aria-label="Open Navigation Menu"
+            >
+              <Menu size={26} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Fullscreen Mobile Drawer */}
+      <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-drawer-header">
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            <BrandLogo theme="dark" size="sm" />
+          </Link>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            style={{ background: 'transparent', color: '#FFFFFF', padding: '8px', cursor: 'pointer' }}
+            aria-label="Close Navigation Menu"
+          >
+            <X size={28} />
+          </button>
+        </div>
+
+        <ul className="mobile-nav-links">
+          <li>
+            <Link
+              to="/"
+              className={`mobile-nav-link ${location.pathname === '/' ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className={`mobile-nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About K.S. Developers
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/projects"
+              className={`mobile-nav-link ${location.pathname === '/projects' ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Portfolio & Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/projects/kashi-hills"
+              className={`mobile-nav-link ${location.pathname.startsWith('/projects/kashi-hills') ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ color: 'var(--kashi-gold-light)', fontWeight: 700 }}
+            >
+              Kashi Hills (Flagship 2 BHK) →
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              className={`mobile-nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact & Enquiries
+            </Link>
+          </li>
+        </ul>
+
+        <div className="mobile-drawer-footer">
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenScheduleModal();
+            }}
+            className="btn btn-kashi-gold"
+            style={{ width: '100%' }}
+          >
+            <Calendar size={18} />
+            <span>Schedule Site Walkthrough</span>
+          </button>
+          <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
+            <a
+              href={`tel:${corporateData.phone}`}
+              className="btn btn-dark-secondary"
+              style={{ flex: 1, fontSize: '0.8rem', textAlign: 'center' }}
+            >
+              <span>Call: {corporateData.phone}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
