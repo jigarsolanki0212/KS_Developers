@@ -47,6 +47,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         {/* Main Title */}
         <div
+          className="brand-title"
           style={{
             fontFamily: "var(--font-serif), 'Cinzel', 'Playfair Display', serif",
             fontSize: titleSize,
@@ -64,6 +65,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
         {/* Decorative Gold Divider */}
         <div
+          className="brand-divider"
           style={{
             height: '1.5px',
             width: '100%',
@@ -74,6 +76,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
         {/* Tagline: 100% Crisp White & Readable */}
         <div
+          className="brand-tagline"
           style={{
             fontFamily: "var(--font-sans), 'Plus Jakarta Sans', sans-serif",
             fontSize: taglineSize,

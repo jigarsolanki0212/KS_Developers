@@ -152,8 +152,8 @@ export const ContactPage: React.FC = () => {
                           onChange={(e) => setProjectInterest(e.target.value)}
                           className="form-select"
                         >
-                          <option value="K S Kashi Hills (2 BHK 596-617 sq.ft)">K S Kashi Hills (2 BHK 596–617 sq.ft)</option>
-                          <option value="K S Kashi Hills Commercial Shops">K S Kashi Hills Commercial Shops</option>
+                          <option value="K S Kashi Hills (2 BHK 596-617 sq.ft)">K S Kashi Hills (2 BHK)</option>
+                          <option value="K S Kashi Hills Commercial Shops">K S Kashi Hills (Shops)</option>
                           <option value="Future Residential Developments">Future Residential Developments</option>
                           <option value="General Developer Inquiry">General Developer Inquiry</option>
                         </select>
@@ -288,7 +288,7 @@ export const ContactPage: React.FC = () => {
                   <h4 style={{ fontSize: '1.05rem', color: 'var(--kashi-teal)', margin: 0 }}>RERA Verified Developer</h4>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: 'var(--kashi-muted)', margin: '0 0 16px', lineHeight: '1.6' }}>
-                  AUDA Registration: <strong style={{ color: 'var(--kashi-charcoal)' }}>{kashiHillsProject.reraNumber}</strong>. We invite prospective buyers to inspect all approved blueprints and legal titles at our office.
+                  AUDA Registration: <strong style={{ color: 'var(--kashi-charcoal)', wordBreak: 'break-all', overflowWrap: 'anywhere' }}>{kashiHillsProject.reraNumber}</strong>. We invite prospective buyers to inspect all approved blueprints and legal titles at our office.
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', color: 'var(--kashi-muted)' }}>
                   <Building size={16} color="var(--kashi-teal)" />

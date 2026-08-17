@@ -115,7 +115,7 @@ export const BrochureViewer: React.FC<BrochureViewerProps> = ({ onOpenLightbox }
         </div>
 
         {/* View Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <button
             onClick={handleZoomIn}
             className="fp-control-btn"

@@ -155,7 +155,9 @@ export const BuyerFAQSection: React.FC = () => {
               <ShieldCheck size={28} color="var(--kashi-gold-dark)" />
               <div>
                 <strong style={{ display: 'block', color: 'var(--kashi-teal)', fontSize: '0.95rem' }}>
-                  AUDA & GujRERA Registered: {kashiHillsProject.reraNumber}
+                  <div style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
+                    AUDA & GujRERA Registered: {kashiHillsProject.reraNumber}
+                  </div>
                 </strong>
                 <span style={{ fontSize: '0.82rem', color: 'var(--kashi-muted)' }}>
                   Complete legal title verification, clear documentation, and transparent pricing.

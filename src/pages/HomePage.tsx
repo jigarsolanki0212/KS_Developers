@@ -121,7 +121,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
                       transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                     }}
                   >
-                    <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', fontWeight: 700, color: 'var(--kashi-teal)', marginBottom: '6px' }}>
+                    <div className="stat-card-value">
                       <AnimatedCounter value={stat.number} duration={1600} />
                     </div>
                     <div style={{ fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--kashi-muted)', fontWeight: 600 }}>

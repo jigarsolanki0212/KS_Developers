@@ -55,7 +55,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenScheduleModal }) => 
                 In an era of dense urban crowding, K.S. Developers deliberately chooses locations like Enasan that afford open skies, clean air pockets, and effortless transit links to Ahmedabad and Gandhinagar.
               </p>
 
-              <div style={{ display: 'flex', gap: '16px' }}>
+              <div className="btn-group">
                 <Link to="/projects/kashi-hills" className="btn btn-kashi-primary">
                   <span>Explore Flagship: Kashi Hills →</span>
                 </Link>
@@ -121,7 +121,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenScheduleModal }) => 
           <p style={{ fontSize: '1.05rem', color: 'var(--kashi-muted)', marginBottom: '32px' }}>
             Whether you are looking for your primary residence or an enduring real estate asset in Ahmedabad, our developer advisory team is ready to assist.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+          <div className="btn-group" style={{ justifyContent: 'center' }}>
             <button onClick={onOpenScheduleModal} className="btn btn-kashi-primary">
               <Calendar size={16} />
               <span>Schedule a Site Visit →</span>

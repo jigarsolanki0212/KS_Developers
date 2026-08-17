@@ -60,7 +60,7 @@ export const LoanEmiCalculator: React.FC = () => {
         </RevealOnScroll>
 
         {/* Clean 2-Column Calculator Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '36px', alignItems: 'stretch' }} className="location-split-grid">
+        <div className="location-split-grid">
           {/* Left Column: Manual Sliders & Inputs */}
           <RevealOnScroll direction="up">
             <div

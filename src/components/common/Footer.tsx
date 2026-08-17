@@ -128,11 +128,11 @@ export const Footer: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                 <ShieldCheck size={16} color="var(--kashi-gold-light)" />
                 <strong style={{ fontSize: '0.78rem', color: 'var(--kashi-gold-light)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  AUDA / GUJRERA REGISTERED
+                  <div style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>AUDA / GUJRERA REGISTERED</div>
                 </strong>
               </div>
               <div style={{ fontSize: '0.8rem', color: '#C2CCD0', fontFamily: 'monospace' }}>
-                {kashiHillsProject.reraNumber}
+                <div style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>{kashiHillsProject.reraNumber}</div>
               </div>
               <a
                 href={kashiHillsAssets.sources.reraVerify}
@@ -153,7 +153,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} K.S. DEVELOPERS. All rights reserved. Architect: 7-AXIS · Structural: Kiran N. Patel.
           </div>
           <div style={{ display: 'flex', gap: '20px' }}>
-            <span>RERA No: {kashiHillsProject.reraNumber}</span>
+            <span style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>RERA No: {kashiHillsProject.reraNumber}</span>
           </div>
         </div>
       </div>

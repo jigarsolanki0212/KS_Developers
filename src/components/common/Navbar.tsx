@@ -30,6 +30,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header className={`header-nav ${isScrolled ? 'scrolled' : 'transparent-dark'}`}>
@@ -89,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Link
               to="/projects/kashi-hills#digital-brochure"
-              className="btn btn-dark-secondary"
+              className="btn btn-dark-secondary nav-cta-btn"
               style={{ padding: '9px 16px', fontSize: '0.8rem' }}
               onClick={() => {
                 const el = document.getElementById('digital-brochure');
@@ -120,8 +132,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
           </div>
         </div>
       </header>
+      {/* Mobile Drawer Overlay */}
+      <div 
+        className={`mobile-drawer-overlay ${mobileMenuOpen ? 'open' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
 
-      {/* Fullscreen Mobile Drawer */}
+      {/* Slide-out Mobile Drawer */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-header">
           <Link to="/" onClick={() => setMobileMenuOpen(false)}>
@@ -184,6 +202,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
             </Link>
           </li>
         </ul>
+        <div style={{ marginTop: 'auto', marginBottom: '24px', paddingTop: '24px', borderTop: '1px solid rgba(214, 181, 106, 0.2)' }}>
+          <h5 style={{ fontSize: '0.8rem', color: 'var(--kashi-gold)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
+            Corporate Office
+          </h5>
+          <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '12px' }}>
+            {corporateData.address}
+          </p>
+          <a href={`mailto:${corporateData.email}`} style={{ color: 'var(--kashi-ivory)', fontSize: '0.9rem', textDecoration: 'underline' }}>
+            {corporateData.email}
+          </a>
+        </div>
 
         <div className="mobile-drawer-footer">
           <button

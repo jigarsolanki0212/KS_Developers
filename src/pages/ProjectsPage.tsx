@@ -93,7 +93,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenScheduleModal 
                       </p>
 
                       {/* Stats Grid */}
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '28px' }}>
+                      <div className="project-stats-triplet">
                         <div style={{ background: 'var(--kashi-ivory)', padding: '10px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--kashi-border)' }}>
                           <span style={{ fontSize: '0.7rem', color: 'var(--kashi-muted)', textTransform: 'uppercase', display: 'block' }}>Config</span>
                           <strong style={{ fontSize: '0.96rem', color: 'var(--kashi-teal)' }}>2 BHK</strong>
@@ -109,7 +109,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenScheduleModal 
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                    <div className="btn-group">
                       <Link to={`/projects/${project.slug}`} className="btn btn-kashi-primary" style={{ flex: 1 }}>
                         <span>View Project Page →</span>
                       </Link>

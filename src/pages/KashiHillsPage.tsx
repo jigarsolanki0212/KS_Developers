@@ -170,7 +170,7 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
                     <span style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--kashi-gold-dark)', fontWeight: 700, display: 'block' }}>
                       AUDA & GUJRERA REGISTERED
                     </span>
-                    <span style={{ fontSize: '0.92rem', color: 'var(--kashi-teal)', fontWeight: 700 }}>
+                    <span style={{ fontSize: '0.92rem', color: 'var(--kashi-teal)', fontWeight: 700, wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
                       {kashiHillsProject.reraNumber}
                     </span>
                   </div>
@@ -553,9 +553,9 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
                   <span style={{ fontSize: '0.72rem', color: '#8E9CA2', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
                     Official Registration Number
                   </span>
-                  <strong style={{ fontSize: '1.05rem', color: 'var(--kashi-gold-light)', wordBreak: 'break-all', fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '1.05rem', color: 'var(--kashi-gold-light)', wordBreak: 'break-all', overflowWrap: 'anywhere', fontFamily: 'monospace' }}>
                     {kashiHillsProject.reraNumber}
-                  </strong>
+                  </div>
                 </div>
 
                 <p style={{ fontSize: '0.88rem', color: '#C2CCD0', lineHeight: '1.6', marginBottom: '24px' }}>

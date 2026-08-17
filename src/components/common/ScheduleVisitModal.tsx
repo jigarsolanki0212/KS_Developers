@@ -105,7 +105,7 @@ export const ScheduleVisitModal: React.FC<ScheduleVisitModalProps> = ({
             </div>
 
             <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-row-2col">
                 <div className="form-group">
                   <label className="form-label">Full Name *</label>
                   <input
@@ -132,7 +132,7 @@ export const ScheduleVisitModal: React.FC<ScheduleVisitModalProps> = ({
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-row-2col">
                 <div className="form-group">
                   <label className="form-label">Email Address</label>
                   <input
