@@ -152,8 +152,12 @@ export const Footer: React.FC = () => {
           <div>
             © {new Date().getFullYear()} K.S. DEVELOPERS. All rights reserved. Architect: 7-AXIS · Structural: Kiran N. Patel.
           </div>
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
             <span style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>RERA No: {kashiHillsProject.reraNumber}</span>
+            <span>|</span>
+            <span style={{ opacity: 0.8 }}>
+              Developed by <a href="https://www.zynetz.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--kashi-gold)', textDecoration: 'none' }}>Zynetz</a>
+            </span>
           </div>
         </div>
       </div>
