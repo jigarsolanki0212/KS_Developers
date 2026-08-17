@@ -3,25 +3,24 @@ import { Calculator } from 'lucide-react';
 import { SectionEyebrow, KashiPattern } from './Decorative';
 import { RevealOnScroll } from './RevealOnScroll';
 
-interface BankRate {
-  name: string;
-  code: string;
+interface RateOption {
+  label: string;
   rate: number;
+  description: string;
 }
 
-const bankRates: BankRate[] = [
-  { name: 'State Bank of India', code: 'SBI', rate: 8.50 },
-  { name: 'HDFC Bank', code: 'HDFC', rate: 8.55 },
-  { name: 'Bank of Baroda', code: 'BOB', rate: 8.40 },
-  { name: 'ICICI Bank', code: 'ICICI', rate: 8.75 },
-  { name: 'Axis Bank', code: 'AXIS', rate: 8.75 }
+const rateOptions: RateOption[] = [
+  { label: 'All-Bank Average', rate: 8.50, description: 'Market Benchmark' },
+  { label: 'Prime / Lowest', rate: 8.40, description: 'Top Credit Score' },
+  { label: 'PSU Banks Avg', rate: 8.60, description: 'Nationalized Banks' },
+  { label: 'Private Banks Avg', rate: 8.75, description: 'Private Lenders' }
 ];
 
 export const LoanEmiCalculator: React.FC = () => {
-  const [loanAmount, setLoanAmount] = useState<number>(3000000); // 30 Lakhs
-  const [interestRate, setInterestRate] = useState<number>(8.50); // 8.5%
-  const [tenureYears, setTenureYears] = useState<number>(20); // 20 Years
-  const [selectedBank, setSelectedBank] = useState<string>('SBI');
+  const [loanAmount, setLoanAmount] = useState<number>(3000000); // 30 Lakhs (Typical 2 BHK)
+  const [interestRate, setInterestRate] = useState<number>(8.50); // 8.5% All-Bank Average default
+  const [tenureYears, setTenureYears] = useState<number>(20); // 20 Years (Range 5-25)
+  const [selectedOption, setSelectedOption] = useState<string>('All-Bank Average');
 
   // Calculate EMI: P * r * (1 + r)^n / ((1 + r)^n - 1)
   const { emi, totalInterest, totalAmount, principalPercentage, interestPercentage } = useMemo(() => {
@@ -49,9 +48,19 @@ export const LoanEmiCalculator: React.FC = () => {
     };
   }, [loanAmount, interestRate, tenureYears]);
 
-  const handleSelectBank = (bank: BankRate) => {
-    setSelectedBank(bank.code);
-    setInterestRate(bank.rate);
+  const handleSelectRateOption = (option: RateOption) => {
+    setSelectedOption(option.label);
+    setInterestRate(option.rate);
+  };
+
+  const handleManualRateChange = (val: number) => {
+    setInterestRate(val);
+    const matched = rateOptions.find((opt) => opt.rate === val);
+    if (matched) {
+      setSelectedOption(matched.label);
+    } else {
+      setSelectedOption('Custom');
+    }
   };
 
   const formatINR = (val: number) => {
@@ -74,7 +83,7 @@ export const LoanEmiCalculator: React.FC = () => {
               Home Loan <span className="highlight">EMI Calculator</span>
             </h2>
             <p className="section-subtitle">
-              Calculate your monthly installment, adjust loan tenure and interest rates, and plan your investment in Kashi Hills with total clarity.
+              Calculate your monthly installment based on current average bank interest rates, adjust tenure between 5 to 25 years, and plan your investment with total transparency.
             </p>
           </div>
         </RevealOnScroll>
@@ -146,17 +155,17 @@ export const LoanEmiCalculator: React.FC = () => {
                     max="14.0"
                     step="0.05"
                     value={interestRate}
-                    onChange={(e) => setInterestRate(Number(e.target.value))}
+                    onChange={(e) => handleManualRateChange(Number(e.target.value))}
                     style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
                     <span>7.0%</span>
-                    <span>8.5% (Bank Avg)</span>
+                    <span>8.50% (All-Bank Avg)</span>
                     <span>14.0%</span>
                   </div>
                 </div>
 
-                {/* 3. Loan Tenure Slider */}
+                {/* 3. Loan Tenure Slider (5 to 25 Years) */}
                 <div style={{ marginBottom: '32px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
@@ -169,7 +178,7 @@ export const LoanEmiCalculator: React.FC = () => {
                   <input
                     type="range"
                     min="5"
-                    max="30"
+                    max="25"
                     step="1"
                     value={tenureYears}
                     onChange={(e) => setTenureYears(Number(e.target.value))}
@@ -177,36 +186,37 @@ export const LoanEmiCalculator: React.FC = () => {
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
                     <span>5 Yrs</span>
+                    <span>10 Yrs</span>
                     <span>15 Yrs</span>
                     <span>20 Yrs</span>
-                    <span>30 Yrs</span>
+                    <span>25 Yrs</span>
                   </div>
                 </div>
               </div>
 
-              {/* Bank Selector Quick Pill Switcher */}
+              {/* Average Rate Selection Option (Default: All-Bank Average) */}
               <div>
                 <label style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--kashi-gold-dark)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '10px' }}>
-                  Quick Partner Bank Preset:
+                  Average Interest Rate Presets:
                 </label>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  {bankRates.map((bank) => (
+                  {rateOptions.map((opt) => (
                     <button
-                      key={bank.code}
-                      onClick={() => handleSelectBank(bank)}
+                      key={opt.label}
+                      onClick={() => handleSelectRateOption(opt)}
                       style={{
                         padding: '8px 14px',
                         borderRadius: 'var(--radius-xs)',
-                        border: selectedBank === bank.code ? '1.5px solid var(--kashi-gold-dark)' : '1px solid var(--kashi-border)',
-                        background: selectedBank === bank.code ? 'rgba(185, 152, 77, 0.12)' : 'var(--kashi-ivory)',
-                        color: selectedBank === bank.code ? 'var(--kashi-teal)' : 'var(--kashi-charcoal)',
+                        border: selectedOption === opt.label ? '1.5px solid var(--kashi-gold-dark)' : '1px solid var(--kashi-border)',
+                        background: selectedOption === opt.label ? 'rgba(185, 152, 77, 0.12)' : 'var(--kashi-ivory)',
+                        color: selectedOption === opt.label ? 'var(--kashi-teal)' : 'var(--kashi-charcoal)',
                         fontSize: '0.82rem',
-                        fontWeight: selectedBank === bank.code ? 700 : 500,
+                        fontWeight: selectedOption === opt.label ? 700 : 500,
                         cursor: 'pointer',
                         transition: 'all 0.2s ease'
                       }}
                     >
-                      {bank.code} ({bank.rate}%)
+                      {opt.label} ({opt.rate}%)
                     </button>
                   ))}
                 </div>
