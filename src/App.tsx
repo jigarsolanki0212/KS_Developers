@@ -69,6 +69,7 @@ export const App: React.FC = () => {
                 />
               }
             />
+            {/* Flagship Project Route & Direct Clean Aliases */}
             <Route
               path="/projects/kashi-hills"
               element={
@@ -80,14 +81,52 @@ export const App: React.FC = () => {
               }
             />
             <Route
-              path="/about"
-              element={<AboutPage onOpenScheduleModal={() => setScheduleModalOpen(true)} />}
+              path="/kashi-hills"
+              element={
+                <KashiHillsPage
+                  onOpenScheduleModal={() => setScheduleModalOpen(true)}
+                  onOpenBrochureModal={() => setBrochureModalOpen(true)}
+                  onOpenLightbox={handleOpenLightbox}
+                />
+              }
             />
+            <Route
+              path="/k-s-kashi-hills"
+              element={
+                <KashiHillsPage
+                  onOpenScheduleModal={() => setScheduleModalOpen(true)}
+                  onOpenBrochureModal={() => setBrochureModalOpen(true)}
+                  onOpenLightbox={handleOpenLightbox}
+                />
+              }
+            />
+
+            {/* Corporate & Portfolio Routes */}
             <Route
               path="/projects"
               element={<ProjectsPage onOpenScheduleModal={() => setScheduleModalOpen(true)} />}
             />
+            <Route
+              path="/about"
+              element={<AboutPage onOpenScheduleModal={() => setScheduleModalOpen(true)} />}
+            />
+            <Route
+              path="/about-us"
+              element={<AboutPage onOpenScheduleModal={() => setScheduleModalOpen(true)} />}
+            />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
+
+            {/* Fallback Catch-all Route */}
+            <Route
+              path="*"
+              element={
+                <HomePage
+                  onOpenScheduleModal={() => setScheduleModalOpen(true)}
+                  onOpenLightbox={handleOpenLightbox}
+                />
+              }
+            />
           </Routes>
         </main>
 

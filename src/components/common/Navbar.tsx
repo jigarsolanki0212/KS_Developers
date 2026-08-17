@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
               <li>
                 <Link
                   to="/about"
-                  className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+                  className={`nav-link ${location.pathname === '/about' || location.pathname === '/about-us' ? 'active' : ''}`}
                 >
                   About
                 </Link>
@@ -63,21 +63,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
                   to="/projects"
                   className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`}
                 >
-                  Projects
+                  Portfolio
                 </Link>
               </li>
               <li>
                 <Link
                   to="/projects/kashi-hills"
-                  className={`nav-link ${location.pathname.startsWith('/projects/kashi-hills') ? 'active' : ''}`}
+                  className={`nav-link ${location.pathname.startsWith('/projects/kashi-hills') || location.pathname === '/kashi-hills' || location.pathname === '/k-s-kashi-hills' ? 'active' : ''}`}
                 >
-                  Kashi Hills (Flagship)
+                  K S Kashi Hills
                 </Link>
               </li>
               <li>
                 <Link
                   to="/contact"
-                  className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+                  className={`nav-link ${location.pathname === '/contact' || location.pathname === '/contact-us' ? 'active' : ''}`}
                 >
                   Contact
                 </Link>
@@ -149,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
           <li>
             <Link
               to="/about"
-              className={`mobile-nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+              className={`mobile-nav-link ${location.pathname === '/about' || location.pathname === '/about-us' ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               About K.S. Developers
@@ -167,17 +167,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
           <li>
             <Link
               to="/projects/kashi-hills"
-              className={`mobile-nav-link ${location.pathname.startsWith('/projects/kashi-hills') ? 'active' : ''}`}
+              className={`mobile-nav-link ${location.pathname.startsWith('/projects/kashi-hills') || location.pathname === '/kashi-hills' || location.pathname === '/k-s-kashi-hills' ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
               style={{ color: 'var(--kashi-gold-light)', fontWeight: 700 }}
             >
-              Kashi Hills (Flagship 2 BHK) →
+              K S Kashi Hills (Flagship 2 BHK) →
             </Link>
           </li>
           <li>
             <Link
               to="/contact"
-              className={`mobile-nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+              className={`mobile-nav-link ${location.pathname === '/contact' || location.pathname === '/contact-us' ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact & Enquiries
