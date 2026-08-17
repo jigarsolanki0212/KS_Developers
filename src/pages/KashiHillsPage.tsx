@@ -25,6 +25,7 @@ import { SEOHead } from '../components/common/SEOHead';
 import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
 import { AnimatedCounter } from '../components/common/AnimatedCounter';
 import { LoanEmiCalculator } from '../components/common/LoanEmiCalculator';
+import { VideoTourSection } from '../components/common/VideoTourSection';
 
 interface KashiHillsPageProps {
   onOpenScheduleModal: () => void;
@@ -466,13 +467,16 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
         </div>
       </section>
 
-      {/* 12. HOME LOAN EMI CALCULATOR & BANK RATES */}
+      {/* 12. CINEMATIC VIDEO WALKTHROUGH (Responsive 16:9) */}
+      <VideoTourSection videoId="XWG9iA4Et1I" title="Cinematic Walkthrough" subtitle="Experience K S Kashi Hills" />
+
+      {/* 13. HOME LOAN EMI CALCULATOR */}
       <LoanEmiCalculator />
 
-      {/* 13. BUYER FAQS & ADVISORY SECTION (SEO & AI Search Target) */}
+      {/* 14. BUYER FAQS & ADVISORY SECTION (SEO & AI Search Target) */}
       <BuyerFAQSection />
 
-      {/* 14. CONTACT CTA (Deep Teal Full-width Section) */}
+      {/* 15. CONTACT CTA (Deep Teal Full-width Section) */}
       <section className="section section-teal-dark">
         <KashiPattern opacity={0.06} color="#FFFFFF" />
 

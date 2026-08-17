@@ -10,6 +10,7 @@ import { SEOHead } from '../components/common/SEOHead';
 import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
 import { AnimatedCounter } from '../components/common/AnimatedCounter';
 import { LoanEmiCalculator } from '../components/common/LoanEmiCalculator';
+import { VideoTourSection } from '../components/common/VideoTourSection';
 
 interface HomePageProps {
   onOpenScheduleModal: () => void;
@@ -312,13 +313,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
         </div>
       </section>
 
-      {/* 6. HOME LOAN EMI CALCULATOR */}
+      {/* 6. CINEMATIC VIDEO WALKTHROUGH (Responsive 16:9) */}
+      <VideoTourSection videoId="XWG9iA4Et1I" title="Virtual Site Tour" subtitle="Watch K S Kashi Hills in Motion" />
+
+      {/* 7. HOME LOAN EMI CALCULATOR */}
       <LoanEmiCalculator />
 
-      {/* 7. HOME BUYER FAQS & ADVISORY (AI & Location Search Optimization) */}
+      {/* 8. HOME BUYER FAQS & ADVISORY (AI & Location Search Optimization) */}
       <BuyerFAQSection />
 
-      {/* 8. CALL TO ACTION */}
+      {/* 9. CALL TO ACTION */}
       <section className="section section-white" style={{ borderTop: '1px solid var(--kashi-border)' }}>
         <div className="container">
           <RevealOnScroll direction="up">
