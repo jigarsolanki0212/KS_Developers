@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Sparkles, Eye, ShieldCheck, MapPin } from 'lucide-react';
+import { Play, Sparkles, Eye, ShieldCheck, MapPin, X } from 'lucide-react';
 import { SectionEyebrow, GoldLine, KashiPattern, ArchitecturalFrame } from './Decorative';
 import { RevealOnScroll } from './RevealOnScroll';
 import { kashiHillsProject } from '../../config/projects';
@@ -17,7 +17,7 @@ export const VideoTourSection: React.FC<VideoTourSectionProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1`;
 
   return (
     <section className="section section-teal-dark" id="video-tour" style={{ position: 'relative', overflow: 'hidden' }}>
@@ -125,20 +125,49 @@ export const VideoTourSection: React.FC<VideoTourSectionProps> = ({
                     </div>
                   </div>
                 ) : (
-                  <iframe
-                    src={embedUrl}
-                    title="K S Kashi Hills — Official Architectural Walkthrough"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      border: 0
-                    }}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
+                  <>
+                    <iframe
+                      src={embedUrl}
+                      title="K S Kashi Hills — Official Architectural Walkthrough"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        border: 0
+                      }}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                    <button
+                      onClick={() => setIsPlaying(false)}
+                      aria-label="Pause and close video"
+                      style={{
+                        position: 'absolute',
+                        top: '16px',
+                        right: '16px',
+                        zIndex: 10,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        background: 'rgba(11, 36, 44, 0.88)',
+                        backdropFilter: 'blur(8px)',
+                        color: 'var(--kashi-gold-light)',
+                        border: '1px solid var(--kashi-border-gold)',
+                        padding: '8px 16px',
+                        borderRadius: '24px',
+                        fontSize: '0.82rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      <X size={16} />
+                      <span>Pause / Close Video</span>
+                    </button>
+                  </>
                 )}
               </div>
             </ArchitecturalFrame>
@@ -173,3 +202,4 @@ export const VideoTourSection: React.FC<VideoTourSectionProps> = ({
     </section>
   );
 };
+

@@ -187,7 +187,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScheduleModal }) => {
               to="/projects/kashi-hills"
               className={`mobile-nav-link ${location.pathname.startsWith('/projects/kashi-hills') || location.pathname === '/kashi-hills' || location.pathname === '/k-s-kashi-hills' ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
-              style={{ color: 'var(--kashi-gold-light)', fontWeight: 700 }}
             >
               K S Kashi Hills (Flagship 2 BHK) →
             </Link>

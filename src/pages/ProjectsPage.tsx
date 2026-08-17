@@ -11,7 +11,7 @@ interface ProjectsPageProps {
 
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenScheduleModal }) => {
   return (
-    <div className="projects-page" style={{ paddingTop: 'var(--header-height)' }}>
+    <div className="projects-page">
       <SEOHead
         title="Residential Projects in Ahmedabad | K.S. Developers Portfolio"
         description="Discover residential and commercial developments by K.S. Developers in Ahmedabad. Explore flagship project K S Kashi Hills 2 BHK homes in Enasan."
@@ -20,7 +20,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenScheduleModal 
       />
 
       {/* Hero (Deep Teal) */}
-      <section className="section section-teal-dark">
+      <section className="section section-teal-dark" style={{ paddingTop: 'calc(var(--header-height) + 36px)' }}>
         <KashiPattern opacity={0.06} color="#FFFFFF" />
         <div className="container">
           <div style={{ maxWidth: '780px', position: 'relative', zIndex: 1 }}>

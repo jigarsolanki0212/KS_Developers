@@ -286,40 +286,120 @@
 }
 
 .project-stats-badge-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: rgba(16, 52, 64, 0.85);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  background: rgba(11, 36, 44, 0.88);
   border: 1px solid var(--kashi-border-gold);
   backdrop-filter: blur(16px);
-  padding: 20px 28px;
+  padding: 24px 32px;
   border-radius: var(--radius-sm);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.project-stats-badge-group .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.project-stats-badge-group .stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(214, 181, 106, 0.4), transparent);
+}
+
+.project-stats-badge-group .stat-value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.project-stats-badge-group .stat-label {
+  display: block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kashi-gold-light);
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 @media (max-width: 768px) {
   .project-stats-badge-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 16px;
-    width: 100%;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+  .project-stats-badge-group .stat-item {
+    align-items: center;
+    text-align: center;
+  }
+  .project-stats-badge-group .stat-item:not(:last-child)::after {
+    right: -7px;
   }
   .project-stats-badge-group .stat-value {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
   .project-stats-badge-group .stat-label {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .project-stats-badge-group {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    padding: 12px;
+    padding: 14px 10px;
+  }
+  .project-stats-badge-group .stat-item {
+    align-items: center;
+    text-align: center;
+  }
+  .project-stats-badge-group .stat-item:not(:last-child)::after {
+    display: none;
   }
   .project-stats-badge-group .stat-value {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    margin-bottom: 2px;
+  }
+  .project-stats-badge-group .stat-label {
+    font-size: 0.64rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (max-width: 375px) {
+  .project-stats-badge-group {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 14px;
+  }
+  .project-stats-badge-group .stat-item {
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px dashed rgba(214, 181, 106, 0.25);
+    padding-bottom: 8px;
+  }
+  .project-stats-badge-group .stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .project-stats-badge-group .stat-value {
+    font-size: 1.3rem;
+  }
+  .project-stats-badge-group .stat-label {
+    font-size: 0.72rem;
   }
 }
 
@@ -1069,9 +1149,6 @@
   .mobile-sticky-bar {
     display: block;
   }
-  body {
-    padding-bottom: calc(74px + env(safe-area-inset-bottom));
-  }
 }
 
 /* 10. Corporate Footer (Deep Teal with Subtle Geometric Pattern) */
@@ -1083,6 +1160,13 @@
   padding-bottom: 36px;
   position: relative;
   overflow: hidden;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-corporate {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
 }
 
 .footer-grid {
@@ -1469,9 +1553,6 @@
 @media (max-width: 768px) {
   .mobile-sticky-bar {
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
-  }
-  body {
-    padding-bottom: calc(74px + env(safe-area-inset-bottom));
   }
 }
 

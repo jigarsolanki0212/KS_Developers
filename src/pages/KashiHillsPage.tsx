@@ -113,13 +113,13 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
               <div className="project-stats-badge-group">
                 <div className="stat-item">
                   <span className="stat-value">2 BHK</span>
-                  <span className="stat-label">Residences & Shops</span>
+                  <span className="stat-label">Residences &amp; Shops</span>
                 </div>
                 <div className="stat-item">
                   <span className="stat-value">
-                    <AnimatedCounter value="596–617" duration={1600} />
+                    596–617 <span style={{ fontSize: '0.78em', fontWeight: 500 }}>Sq.Ft.</span>
                   </span>
-                  <span className="stat-label">Sq.Ft. Carpet</span>
+                  <span className="stat-label">Usable Carpet</span>
                 </div>
                 <div className="stat-item">
                   <span className="stat-value">Ready</span>

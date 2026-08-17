@@ -12,7 +12,7 @@ interface AboutPageProps {
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenScheduleModal }) => {
   return (
-    <div className="about-page" style={{ paddingTop: 'var(--header-height)' }}>
+    <div className="about-page">
       <SEOHead
         title="About K.S. Developers | Premium Real Estate Developer Ahmedabad"
         description="Learn about K.S. Developers — a leading Ahmedabad developer committed to architectural integrity, honest materiality, RERA compliance, and quality residential living in Enasan."
@@ -21,7 +21,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenScheduleModal }) => 
       />
 
       {/* Hero (Deep Teal) */}
-      <section className="section section-teal-dark">
+      <section className="section section-teal-dark" style={{ paddingTop: 'calc(var(--header-height) + 36px)' }}>
         <KashiPattern opacity={0.06} color="#FFFFFF" />
         <div className="container">
           <div style={{ maxWidth: '820px', position: 'relative', zIndex: 1 }}>

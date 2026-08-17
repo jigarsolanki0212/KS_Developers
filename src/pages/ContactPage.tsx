@@ -22,7 +22,7 @@ export const ContactPage: React.FC = () => {
   )}`;
 
   return (
-    <div className="contact-page" style={{ paddingTop: 'var(--header-height)' }}>
+    <div className="contact-page">
       <SEOHead
         title="Contact K.S. Developers | Site Office & Inquiries in Enasan Ahmedabad"
         description="Get in touch with K.S. Developers sales & engineering desk. Schedule a guided walkthrough of K S Kashi Hills 2 BHK flats in Enasan, Naroda-Dehgam corridor."
@@ -31,7 +31,7 @@ export const ContactPage: React.FC = () => {
       />
 
       {/* Hero (Deep Teal) */}
-      <section className="section section-teal-dark">
+      <section className="section section-teal-dark" style={{ paddingTop: 'calc(var(--header-height) + 36px)' }}>
         <KashiPattern opacity={0.06} color="#FFFFFF" />
         <div className="container">
           <div style={{ maxWidth: '780px', position: 'relative', zIndex: 1 }}>

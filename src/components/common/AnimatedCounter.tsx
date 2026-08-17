@@ -13,16 +13,31 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   className = '',
   style = {}
 }) => {
-  const [displayValue, setDisplayValue] = useState('0');
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const isRange = value.includes('–') || value.includes('-');
+  // Initialize ranges directly to their final string to eliminate dual-number frame flickering on load
+  const [displayValue, setDisplayValue] = useState(() => (isRange ? value : '0'));
+  const hasAnimatedRef = useRef(false);
   const elementRef = useRef<HTMLSpanElement>(null);
+  const rafRef = useRef<number | null>(null);
+
+  const stopAnimation = () => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+  };
 
   useEffect(() => {
+    if (isRange) {
+      setDisplayValue(value);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
+          if (entry.isIntersecting && !hasAnimatedRef.current) {
+            hasAnimatedRef.current = true;
             animateCount();
             if (elementRef.current) {
               observer.unobserve(elementRef.current);
@@ -42,69 +57,40 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       if (currentEl) {
         observer.unobserve(currentEl);
       }
+      stopAnimation();
     };
-  }, [hasAnimated, value]);
+  }, [value, duration, isRange]);
 
   const animateCount = () => {
-    const isRange = value.includes('–') || value.includes('-');
-    const delimiter = value.includes('–') ? '–' : '-';
-
-    if (isRange) {
-      const parts = value.split(delimiter);
-      const num1 = parseInt(parts[0].replace(/[^0-9]/g, ''), 10) || 0;
-      const num2 = parseInt(parts[1].replace(/[^0-9]/g, ''), 10) || 0;
-
-      const startTime = performance.now();
-
-      const step = (now: number) => {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        // Ease out cubic
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-
-        const current1 = Math.floor(easeOut * num1);
-        const current2 = Math.floor(easeOut * num2);
-
-        setDisplayValue(`${current1}${delimiter}${current2}`);
-
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          setDisplayValue(value);
-        }
-      };
-
-      requestAnimationFrame(step);
-      return;
-    }
+    stopAnimation();
 
     // Single number with possible suffix (e.g. "75+", "100%", "2")
     const numericTarget = parseInt(value.replace(/[^0-9]/g, ''), 10) || 0;
-    const suffix = value.replace(/[0-9]/g, '');
+    const suffix = value.replace(/[0-9.]/g, '');
 
     const startTime = performance.now();
 
     const step = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const easeOut = 1 - Math.pow(1 - progress, 3);
 
       const current = Math.floor(easeOut * numericTarget);
       setDisplayValue(`${current}${suffix}`);
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        rafRef.current = requestAnimationFrame(step);
       } else {
         setDisplayValue(value);
+        rafRef.current = null;
       }
     };
 
-    requestAnimationFrame(step);
+    rafRef.current = requestAnimationFrame(step);
   };
 
   return (
-    <span ref={elementRef} className={className} style={style}>
+    <span ref={elementRef} className={className} style={{ fontVariantNumeric: 'tabular-nums', ...style }}>
       {displayValue}
     </span>
   );
