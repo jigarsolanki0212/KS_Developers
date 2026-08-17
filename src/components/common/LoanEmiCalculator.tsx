@@ -3,24 +3,10 @@ import { Calculator } from 'lucide-react';
 import { SectionEyebrow, KashiPattern } from './Decorative';
 import { RevealOnScroll } from './RevealOnScroll';
 
-interface RateOption {
-  label: string;
-  rate: number;
-  description: string;
-}
-
-const rateOptions: RateOption[] = [
-  { label: 'All-Bank Average', rate: 8.50, description: 'Market Benchmark' },
-  { label: 'Prime / Lowest', rate: 8.40, description: 'Top Credit Score' },
-  { label: 'PSU Banks Avg', rate: 8.60, description: 'Nationalized Banks' },
-  { label: 'Private Banks Avg', rate: 8.75, description: 'Private Lenders' }
-];
-
 export const LoanEmiCalculator: React.FC = () => {
-  const [loanAmount, setLoanAmount] = useState<number>(3000000); // 30 Lakhs (Typical 2 BHK)
-  const [interestRate, setInterestRate] = useState<number>(8.50); // 8.5% All-Bank Average default
-  const [tenureYears, setTenureYears] = useState<number>(20); // 20 Years (Range 5-25)
-  const [selectedOption, setSelectedOption] = useState<string>('All-Bank Average');
+  const [loanAmount, setLoanAmount] = useState<number>(3000000); // Default 30 Lakhs
+  const [interestRate, setInterestRate] = useState<number>(8.50); // Default 8.50%
+  const [tenureYears, setTenureYears] = useState<number>(20); // Default 20 Years (5-25 range)
 
   // Calculate EMI: P * r * (1 + r)^n / ((1 + r)^n - 1)
   const { emi, totalInterest, totalAmount, principalPercentage, interestPercentage } = useMemo(() => {
@@ -48,21 +34,6 @@ export const LoanEmiCalculator: React.FC = () => {
     };
   }, [loanAmount, interestRate, tenureYears]);
 
-  const handleSelectRateOption = (option: RateOption) => {
-    setSelectedOption(option.label);
-    setInterestRate(option.rate);
-  };
-
-  const handleManualRateChange = (val: number) => {
-    setInterestRate(val);
-    const matched = rateOptions.find((opt) => opt.rate === val);
-    if (matched) {
-      setSelectedOption(matched.label);
-    } else {
-      setSelectedOption('Custom');
-    }
-  };
-
   const formatINR = (val: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -83,14 +54,14 @@ export const LoanEmiCalculator: React.FC = () => {
               Home Loan <span className="highlight">EMI Calculator</span>
             </h2>
             <p className="section-subtitle">
-              Calculate your monthly installment based on current average bank interest rates, adjust tenure between 5 to 25 years, and plan your investment with total transparency.
+              Calculate your monthly installment, enter your custom interest rate, adjust tenure between 5 to 25 years, and plan your investment with total transparency.
             </p>
           </div>
         </RevealOnScroll>
 
         {/* Clean 2-Column Calculator Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '36px', alignItems: 'stretch' }} className="location-split-grid">
-          {/* Left Column: Sliders & Controls */}
+          {/* Left Column: Manual Sliders & Inputs */}
           <RevealOnScroll direction="up">
             <div
               style={{
@@ -102,129 +73,139 @@ export const LoanEmiCalculator: React.FC = () => {
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'center'
               }}
             >
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
-                  <Calculator size={22} color="var(--kashi-teal)" />
-                  <h3 style={{ fontSize: '1.35rem', color: 'var(--kashi-teal)', margin: 0 }}>
-                    Loan Parameters
-                  </h3>
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '28px' }}>
+                <Calculator size={22} color="var(--kashi-teal)" />
+                <h3 style={{ fontSize: '1.35rem', color: 'var(--kashi-teal)', margin: 0 }}>
+                  Loan Parameters
+                </h3>
+              </div>
 
-                {/* 1. Loan Amount Slider */}
-                <div style={{ marginBottom: '28px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                    <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
-                      Loan Amount Required
-                    </label>
-                    <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--kashi-teal)', fontFamily: 'var(--font-serif)' }}>
-                      {formatINR(loanAmount)}
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min="500000"
-                    max="10000000"
-                    step="50000"
-                    value={loanAmount}
-                    onChange={(e) => setLoanAmount(Number(e.target.value))}
-                    style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
-                  />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
-                    <span>₹5 Lakhs</span>
-                    <span>₹30 L (Typical 2 BHK)</span>
-                    <span>₹1 Crore</span>
-                  </div>
+              {/* 1. Loan Amount */}
+              <div style={{ marginBottom: '32px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <label style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
+                    Loan Amount Required
+                  </label>
+                  <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--kashi-teal)', fontFamily: 'var(--font-serif)' }}>
+                    {formatINR(loanAmount)}
+                  </span>
                 </div>
-
-                {/* 2. Interest Rate Slider */}
-                <div style={{ marginBottom: '28px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                    <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
-                      Interest Rate (% per annum)
-                    </label>
-                    <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--kashi-teal)', fontFamily: 'var(--font-serif)' }}>
-                      {interestRate.toFixed(2)}%
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min="7.0"
-                    max="14.0"
-                    step="0.05"
-                    value={interestRate}
-                    onChange={(e) => handleManualRateChange(Number(e.target.value))}
-                    style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
-                  />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
-                    <span>7.0%</span>
-                    <span>8.50% (All-Bank Avg)</span>
-                    <span>14.0%</span>
-                  </div>
-                </div>
-
-                {/* 3. Loan Tenure Slider (5 to 25 Years) */}
-                <div style={{ marginBottom: '32px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                    <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
-                      Loan Tenure (Years)
-                    </label>
-                    <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--kashi-teal)', fontFamily: 'var(--font-serif)' }}>
-                      {tenureYears} Years ({tenureYears * 12} Months)
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min="5"
-                    max="25"
-                    step="1"
-                    value={tenureYears}
-                    onChange={(e) => setTenureYears(Number(e.target.value))}
-                    style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
-                  />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
-                    <span>5 Yrs</span>
-                    <span>10 Yrs</span>
-                    <span>15 Yrs</span>
-                    <span>20 Yrs</span>
-                    <span>25 Yrs</span>
-                  </div>
+                <input
+                  type="range"
+                  min="500000"
+                  max="10000000"
+                  step="50000"
+                  value={loanAmount}
+                  onChange={(e) => setLoanAmount(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
+                />
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
+                  <span>₹5 Lakhs</span>
+                  <span>₹30 L (Typical 2 BHK)</span>
+                  <span>₹1 Crore</span>
                 </div>
               </div>
 
-              {/* Average Rate Selection Option (Default: All-Bank Average) */}
-              <div>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--kashi-gold-dark)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '10px' }}>
-                  Average Interest Rate Presets:
-                </label>
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  {rateOptions.map((opt) => (
-                    <button
-                      key={opt.label}
-                      onClick={() => handleSelectRateOption(opt)}
+              {/* 2. Interest Rate (Manual Input + Slider) */}
+              <div style={{ marginBottom: '32px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <label style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
+                    Interest Rate (% per annum)
+                  </label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <input
+                      type="number"
+                      min="5"
+                      max="20"
+                      step="0.05"
+                      value={interestRate}
+                      onChange={(e) => setInterestRate(Number(e.target.value))}
                       style={{
-                        padding: '8px 14px',
+                        width: '72px',
+                        padding: '4px 8px',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        color: 'var(--kashi-teal)',
+                        fontFamily: 'var(--font-serif)',
+                        border: '1px solid var(--kashi-border-gold)',
                         borderRadius: 'var(--radius-xs)',
-                        border: selectedOption === opt.label ? '1.5px solid var(--kashi-gold-dark)' : '1px solid var(--kashi-border)',
-                        background: selectedOption === opt.label ? 'rgba(185, 152, 77, 0.12)' : 'var(--kashi-ivory)',
-                        color: selectedOption === opt.label ? 'var(--kashi-teal)' : 'var(--kashi-charcoal)',
-                        fontSize: '0.82rem',
-                        fontWeight: selectedOption === opt.label ? 700 : 500,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
+                        background: 'var(--kashi-ivory)',
+                        textAlign: 'right'
                       }}
-                    >
-                      {opt.label} ({opt.rate}%)
-                    </button>
-                  ))}
+                    />
+                    <span style={{ fontWeight: 700, color: 'var(--kashi-teal)' }}>%</span>
+                  </div>
+                </div>
+                <input
+                  type="range"
+                  min="6.0"
+                  max="15.0"
+                  step="0.05"
+                  value={interestRate}
+                  onChange={(e) => setInterestRate(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
+                />
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
+                  <span>6.0%</span>
+                  <span>8.50% (Default Average)</span>
+                  <span>15.0%</span>
+                </div>
+              </div>
+
+              {/* 3. Loan Tenure (5 to 25 Years) */}
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <label style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--kashi-charcoal)' }}>
+                    Loan Tenure (Years)
+                  </label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <input
+                      type="number"
+                      min="5"
+                      max="25"
+                      step="1"
+                      value={tenureYears}
+                      onChange={(e) => setTenureYears(Number(e.target.value))}
+                      style={{
+                        width: '60px',
+                        padding: '4px 8px',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        color: 'var(--kashi-teal)',
+                        fontFamily: 'var(--font-serif)',
+                        border: '1px solid var(--kashi-border-gold)',
+                        borderRadius: 'var(--radius-xs)',
+                        background: 'var(--kashi-ivory)',
+                        textAlign: 'right'
+                      }}
+                    />
+                    <span style={{ fontWeight: 700, color: 'var(--kashi-teal)', fontSize: '0.9rem' }}>Yrs</span>
+                  </div>
+                </div>
+                <input
+                  type="range"
+                  min="5"
+                  max="25"
+                  step="1"
+                  value={tenureYears}
+                  onChange={(e) => setTenureYears(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: 'var(--kashi-gold-dark)', cursor: 'pointer' }}
+                />
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--kashi-muted)', marginTop: '4px' }}>
+                  <span>5 Yrs</span>
+                  <span>10 Yrs</span>
+                  <span>15 Yrs</span>
+                  <span>20 Yrs</span>
+                  <span>25 Yrs</span>
                 </div>
               </div>
             </div>
           </RevealOnScroll>
 
-          {/* Right Column: Calculated Monthly EMI Result Card (Pure Info Breakdown Only) */}
+          {/* Right Column: Calculated Monthly EMI Result Card */}
           <RevealOnScroll direction="up" delay={150}>
             <div
               style={{
