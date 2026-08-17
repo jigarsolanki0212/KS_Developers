@@ -27,7 +27,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '32px', alignItems: 'stretch' }}>
+      <div className="location-split-grid">
         {/* Left: Google Maps Interactive Embed */}
         <ArchitecturalFrame style={{ minHeight: '440px', background: 'var(--kashi-white)' }}>
           <iframe

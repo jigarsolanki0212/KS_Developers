@@ -43,7 +43,7 @@ export const ContactPage: React.FC = () => {
       <section className="section section-ivory">
         <KashiPattern opacity={0.04} color="#173F4E" />
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '48px', alignItems: 'start' }}>
+          <div className="contact-page-grid">
             {/* Left: Contact Form */}
             <div
               style={{
@@ -100,7 +100,7 @@ export const ContactPage: React.FC = () => {
                   </p>
 
                   <form onSubmit={handleSubmit}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div className="form-row-2col">
                       <div className="form-group">
                         <label className="form-label">Your Name *</label>
                         <input
@@ -126,7 +126,7 @@ export const ContactPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div className="form-row-2col">
                       <div className="form-group">
                         <label className="form-label">Email Address</label>
                         <input

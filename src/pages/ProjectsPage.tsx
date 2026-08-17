@@ -35,7 +35,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenScheduleModal 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
             {allProjects.map((project) => (
               <ArchitecturalFrame key={project.id}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr' }}>
+                <div className="projects-page-card-grid">
                   {/* Image Showcase */}
                   <div style={{ position: 'relative', minHeight: '380px' }}>
                     <img

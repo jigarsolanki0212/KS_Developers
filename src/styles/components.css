@@ -177,7 +177,8 @@
 /* 2. Hero Section */
 .hero-corporate {
   position: relative;
-  min-height: 94vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   background-color: var(--kashi-teal-dark);
@@ -243,7 +244,8 @@
 /* 3. Project Flagship Hero */
 .hero-project {
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: flex-end;
   background-color: var(--kashi-teal-dark);
@@ -268,6 +270,7 @@
 
 .project-stats-badge-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   background: rgba(16, 52, 64, 0.85);
   border: 1px solid var(--kashi-border-gold);
@@ -276,23 +279,277 @@
   border-radius: var(--radius-sm);
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
+@media (max-width: 768px) {
+  .project-stats-badge-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px;
+    width: 100%;
+  }
+  .project-stats-badge-group .stat-value {
+    font-size: 1.25rem;
+  }
+  .project-stats-badge-group .stat-label {
+    font-size: 0.65rem;
+  }
 }
 
-.stat-value {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--kashi-gold-light);
+@media (max-width: 480px) {
+  .project-stats-badge-group {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+  .project-stats-badge-group .stat-value {
+    font-size: 1.1rem;
+  }
 }
 
-.stat-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #C2CCD0;
+/* ========================================================
+   Responsive Layout Grid Classes (Replaces Inline Grids)
+   ======================================================== */
+
+/* 1. About / Developer Overview Grid (1.1fr 1fr -> 1fr on mobile) */
+.about-developer-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .about-developer-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-developer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* 2. Stats Grid 2x2 (1fr 1fr -> 1fr on narrow mobile) */
+.stats-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 480px) {
+  .stats-grid-2x2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* 3. Featured Project Card (1.3fr 1fr -> 1fr on mobile) */
+.featured-project-card-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .featured-project-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4. Project Key Stats Triplet (repeat(3, 1fr) -> 1fr on narrow mobile) */
+.project-stats-triplet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+  .project-stats-triplet {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* 5. About Narrative Grid (1.2fr 1fr -> 1fr on mobile) */
+.about-narrative-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .about-narrative-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-narrative-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* 6. Contact Page Main Grid (1.2fr 1fr -> 1fr on tablet/mobile) */
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .contact-page-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* 7. Form Row 2-Column (1fr 1fr -> 1fr on mobile) */
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* 8. Project Overview Grid (1.2fr 1fr -> 1fr on mobile) */
+.project-overview-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .project-overview-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* 9. Architecture Mosaic Gallery (repeat(12, 1fr) -> single column on mobile) */
+.architecture-mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.arch-tile {
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--kashi-border);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.arch-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.arch-tile-7 {
+  grid-column: span 7;
+  min-height: 340px;
+}
+
+.arch-tile-5 {
+  grid-column: span 5;
+  min-height: 340px;
+}
+
+.arch-tile-4 {
+  grid-column: span 4;
+  height: 260px;
+}
+
+@media (max-width: 991px) {
+  .arch-tile-7 {
+    grid-column: span 12;
+    min-height: 300px;
+  }
+  .arch-tile-5 {
+    grid-column: span 12;
+    min-height: 300px;
+  }
+  .arch-tile-4 {
+    grid-column: span 6;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .architecture-mosaic-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .arch-tile-7,
+  .arch-tile-5,
+  .arch-tile-4 {
+    grid-column: span 1 !important;
+    min-height: unset !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* 10. Project CTA Split Grid (1fr 1fr -> 1fr on mobile) */
+.project-cta-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .project-cta-split-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* 11. Projects Page Card Grid (1.3fr 1fr -> 1fr on mobile) */
+.projects-page-card-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .projects-page-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 12. Location Split Grid (1.2fr 1fr -> 1fr on mobile) */
+.location-split-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .location-split-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 /* 4. Floor Plan Interactive Viewer with 2D / 3D Toggle */

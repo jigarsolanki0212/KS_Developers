@@ -74,7 +74,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
         <KashiPattern opacity={0.04} color="#173F4E" />
 
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '64px', alignItems: 'center' }}>
+          <div className="about-developer-grid">
             <RevealOnScroll direction="up">
               <div>
                 <SectionEyebrow text="THE DEVELOPER" />
@@ -96,7 +96,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
             </RevealOnScroll>
 
             {/* Corporate Stats Cards in Warm Ivory Theme */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
+            <div className="stats-grid-2x2">
               {corporateData.stats.map((stat, idx) => (
                 <RevealOnScroll key={idx} direction="up" delay={idx * 120}>
                   <div
@@ -141,7 +141,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
 
           <RevealOnScroll direction="up" delay={150}>
             <ArchitecturalFrame>
-              <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr' }}>
+              <div className="featured-project-card-grid">
                 {/* Image Preview with Smooth Blur-up */}
                 <div
                   style={{ position: 'relative', overflow: 'hidden', minHeight: '440px', cursor: 'pointer' }}
@@ -190,7 +190,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
                     </p>
 
                     {/* Key Project Badges */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '32px' }}>
+                    <div className="project-stats-triplet">
                       <div style={{ background: 'var(--kashi-ivory)', padding: '12px', borderRadius: 'var(--radius-xs)', textAlign: 'center', border: '1px solid var(--kashi-border)' }}>
                         <span style={{ fontSize: '0.7rem', color: 'var(--kashi-muted)', textTransform: 'uppercase', display: 'block' }}>Config</span>
                         <strong style={{ fontSize: '0.96rem', color: 'var(--kashi-teal)' }}>2 BHK</strong>

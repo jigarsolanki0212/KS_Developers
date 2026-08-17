@@ -33,7 +33,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenScheduleModal }) => 
       <section className="section section-ivory">
         <KashiPattern opacity={0.04} color="#173F4E" />
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '64px', alignItems: 'center' }}>
+          <div className="about-narrative-grid">
             <div>
               <SectionEyebrow text="OUR ETHOS" />
               <h2 className="section-title">

@@ -122,7 +122,7 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
         <KashiPattern opacity={0.04} color="#173F4E" />
 
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '56px', alignItems: 'center' }}>
+          <div className="project-overview-grid">
             <RevealOnScroll direction="up">
               <div>
                 <SectionEyebrow text="THE RESIDENCES" />
@@ -240,37 +240,37 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
             </div>
           </RevealOnScroll>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '18px' }}>
+          <div className="architecture-mosaic-grid">
             <div
-              style={{ gridColumn: 'span 7', cursor: 'pointer', borderRadius: 'var(--radius-xs)', overflow: 'hidden', border: '1px solid var(--kashi-border)', minHeight: '340px' }}
+              className="arch-tile arch-tile-7"
               onClick={() => onOpenLightbox(getAssetUrl('elevation01'), 'Elevation 01 — Front Facade')}
             >
               <LazyImage src={getAssetUrl('elevation01')} alt="Elevation 1" />
             </div>
 
             <div
-              style={{ gridColumn: 'span 5', cursor: 'pointer', borderRadius: 'var(--radius-xs)', overflow: 'hidden', border: '1px solid var(--kashi-border)', minHeight: '340px' }}
+              className="arch-tile arch-tile-5"
               onClick={() => onOpenLightbox(getAssetUrl('elevation02'), 'Elevation 02 — Angle Perspective')}
             >
               <LazyImage src={getAssetUrl('elevation02')} alt="Elevation 2" />
             </div>
 
             <div
-              style={{ gridColumn: 'span 4', cursor: 'pointer', borderRadius: 'var(--radius-xs)', overflow: 'hidden', border: '1px solid var(--kashi-border)', height: '260px' }}
+              className="arch-tile arch-tile-4"
               onClick={() => onOpenLightbox(getAssetUrl('elevation03'), 'Elevation 03 — Tower Profile')}
             >
               <LazyImage src={getAssetUrl('elevation03')} alt="Elevation 3" />
             </div>
 
             <div
-              style={{ gridColumn: 'span 4', cursor: 'pointer', borderRadius: 'var(--radius-xs)', overflow: 'hidden', border: '1px solid var(--kashi-border)', height: '260px' }}
+              className="arch-tile arch-tile-4"
               onClick={() => onOpenLightbox(getAssetUrl('closeUp'), 'Architecture Detail — Balcony & Finish')}
             >
               <LazyImage src={getAssetUrl('closeUp')} alt="Close-up detail" />
             </div>
 
             <div
-              style={{ gridColumn: 'span 4', cursor: 'pointer', borderRadius: 'var(--radius-xs)', overflow: 'hidden', border: '1px solid var(--kashi-border)', height: '260px' }}
+              className="arch-tile arch-tile-4"
               onClick={() => onOpenLightbox(getAssetUrl('sideView'), 'Side View — Driveway & Tower')}
             >
               <LazyImage src={getAssetUrl('sideView')} alt="Side view" />
@@ -459,7 +459,7 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
 
         <div className="container">
           <RevealOnScroll direction="up">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center', position: 'relative', zIndex: 1 }}>
+            <div className="project-cta-split-grid">
               <div>
                 <SectionEyebrow text="PRIVATE APPOINTMENT" light />
                 <h2 className="section-title" style={{ color: '#FFFFFF' }}>
