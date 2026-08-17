@@ -1093,3 +1093,196 @@
   font-size: 0.82rem;
   color: #8E9CA2;
 }
+
+/* ==========================================================================
+   13. Complete Project Gallery (3-Column Luxury Architecture Cards)
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--kashi-border);
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  background: #0C1E24;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  border-color: var(--kashi-gold);
+}
+
+.gallery-card img,
+.gallery-card .lazy-image,
+.gallery-card .lazy-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover img,
+.gallery-card:hover .lazy-image,
+.gallery-card:hover .lazy-image-img {
+  transform: scale(1.06);
+}
+
+.gallery-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 36, 44, 0.95) 0%, rgba(11, 36, 44, 0.45) 50%, rgba(11, 36, 44, 0.05) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 22px;
+  z-index: 2;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.gallery-card:hover .gallery-card-overlay {
+  background: linear-gradient(to top, rgba(11, 36, 44, 0.98) 0%, rgba(11, 36, 44, 0.6) 60%, rgba(11, 36, 44, 0.15) 100%);
+}
+
+.gallery-card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--kashi-gold-light);
+  background: rgba(214, 181, 106, 0.22);
+  border: 1px solid rgba(214, 181, 106, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.gallery-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   14. Master Plan & Site Plan Interactive Viewer (Clean Tabs & Viewport)
+   ========================================================================== */
+.site-plan-viewer {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.sp-level-nav {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  background: var(--kashi-teal-dark);
+  border-bottom: 1px solid var(--kashi-border-gold);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .sp-level-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 12px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.sp-level-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-xs);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.sp-level-btn.active {
+  background: linear-gradient(135deg, var(--kashi-gold), var(--kashi-gold-dark)) !important;
+  color: var(--kashi-teal-dark) !important;
+  border: 1px solid var(--kashi-gold-light) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(214, 181, 106, 0.35);
+}
+
+.sp-level-btn:not(.active) {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #DDE5E8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.sp-level-btn:not(.active):hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(214, 181, 106, 0.5) !important;
+}
+
+.sp-viewport {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sp-viewport {
+    height: 380px;
+  }
+}
+
+.sp-plan-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.1s ease-out;
+  user-select: none;
+}
+
+.sp-floating-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+}
+

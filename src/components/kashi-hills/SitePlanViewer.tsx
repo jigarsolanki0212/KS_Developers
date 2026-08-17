@@ -42,9 +42,9 @@ export const SitePlanViewer: React.FC<SitePlanViewerProps> = ({
   const handleMouseUp = () => setIsDragging(false);
 
   return (
-    <div className="site-plan-viewer" id="siteplan" style={{ background: 'var(--kashi-white)', border: '1px solid var(--kashi-border)' }}>
+    <div className="site-plan-viewer" id="siteplan">
       {/* Cluster Plan Level Navigation */}
-      <div className="sp-level-nav" style={{ background: 'var(--kashi-ivory-warm)', borderBottom: '1px solid var(--kashi-border)' }}>
+      <div className="sp-level-nav">
         {clusterPlans.map((plan) => (
           <button
             key={plan.id}
@@ -53,14 +53,9 @@ export const SitePlanViewer: React.FC<SitePlanViewerProps> = ({
               handleReset();
             }}
             className={`sp-level-btn ${plan.id === activePlan.id ? 'active' : ''}`}
-            style={{
-              background: plan.id === activePlan.id ? 'var(--kashi-teal)' : 'var(--kashi-white)',
-              color: plan.id === activePlan.id ? 'var(--kashi-ivory)' : 'var(--kashi-charcoal)',
-              border: '1px solid var(--kashi-border)'
-            }}
           >
-            <Layers size={14} style={{ display: 'inline', marginRight: '6px' }} />
-            {plan.floorRange} ({plan.title})
+            <Layers size={14} style={{ display: 'inline', flexShrink: 0 }} />
+            <span>{plan.title.replace('Plan (1st to 7th Floor)', 'Plan')}</span>
           </button>
         ))}
       </div>
