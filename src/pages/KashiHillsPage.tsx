@@ -23,7 +23,6 @@ import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { LazyImage } from '../components/common/LazyImage';
 import { SEOHead } from '../components/common/SEOHead';
 import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
-import { AnimatedCounter } from '../components/common/AnimatedCounter';
 import { LoanEmiCalculator } from '../components/common/LoanEmiCalculator';
 import { VideoTourSection } from '../components/common/VideoTourSection';
 
