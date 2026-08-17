@@ -24,6 +24,7 @@ import { LazyImage } from '../components/common/LazyImage';
 import { SEOHead } from '../components/common/SEOHead';
 import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
 import { AnimatedCounter } from '../components/common/AnimatedCounter';
+import { LoanEmiCalculator } from '../components/common/LoanEmiCalculator';
 
 interface KashiHillsPageProps {
   onOpenScheduleModal: () => void;
@@ -465,10 +466,13 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
         </div>
       </section>
 
-      {/* 12. BUYER FAQS & ADVISORY SECTION (SEO & AI Search Target) */}
+      {/* 12. HOME LOAN EMI CALCULATOR & BANK RATES */}
+      <LoanEmiCalculator />
+
+      {/* 13. BUYER FAQS & ADVISORY SECTION (SEO & AI Search Target) */}
       <BuyerFAQSection />
 
-      {/* 13. CONTACT CTA (Deep Teal Full-width Section) */}
+      {/* 14. CONTACT CTA (Deep Teal Full-width Section) */}
       <section className="section section-teal-dark">
         <KashiPattern opacity={0.06} color="#FFFFFF" />
 
