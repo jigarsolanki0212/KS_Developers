@@ -16,9 +16,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   // Always dark background for the luxury dark teal navbar
   const isLightBg = theme === 'light' && !isScrolled;
 
-  const emblemHeight = size === 'sm' ? 36 : size === 'lg' ? 56 : 46;
-  const titleSize = size === 'sm' ? '1.05rem' : size === 'lg' ? '1.55rem' : '1.25rem';
-  const taglineSize = size === 'sm' ? '0.58rem' : size === 'lg' ? '0.74rem' : '0.66rem';
+  const emblemHeight = size === 'sm' ? 32 : size === 'lg' ? 52 : 40;
+  const titleSize = size === 'sm' ? 'clamp(0.9rem, 3.5vw, 1.05rem)' : size === 'lg' ? 'clamp(1.25rem, 4vw, 1.55rem)' : 'clamp(1rem, 3.8vw, 1.25rem)';
+  const taglineSize = size === 'sm' ? 'clamp(0.5rem, 1.8vw, 0.58rem)' : size === 'lg' ? 'clamp(0.6rem, 2.2vw, 0.74rem)' : 'clamp(0.52rem, 2vw, 0.66rem)';
 
   return (
     <div
