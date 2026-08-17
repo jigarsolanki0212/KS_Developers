@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ksdevelopers.in/</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ksdevelopers.in/assets/kashi-hills/hero/brochure-hero-elevation.jpg</image:loc>
+      <image:title>K S Kashi Hills 2 BHK Residences Enasan Ahmedabad</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://ksdevelopers.in/projects/kashi-hills</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://ksdevelopers.in/about</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ksdevelopers.in/assets/kashi-hills/hero/brochure-hero-elevation.jpg</image:loc>
+      <image:title>K S Kashi Hills Flagship 2 BHK Residences &amp; Shops</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://ksdevelopers.in/projects</loc>
-    <lastmod>2025-02-25</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://ksdevelopers.in/contact</loc>
-    <lastmod>2025-02-25</lastmod>
+    <loc>https://ksdevelopers.in/about</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ksdevelopers.in/contact</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
 </urlset>

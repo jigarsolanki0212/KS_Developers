@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Calendar } from 'lucide-react';
 import { allProjects } from '../config/projects';
 import { SectionEyebrow, GoldLine, KashiPattern, ArchitecturalFrame } from '../components/common/Decorative';
+import { SEOHead } from '../components/common/SEOHead';
 
 interface ProjectsPageProps {
   onOpenScheduleModal: () => void;
@@ -11,6 +12,13 @@ interface ProjectsPageProps {
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenScheduleModal }) => {
   return (
     <div className="projects-page" style={{ paddingTop: 'var(--header-height)' }}>
+      <SEOHead
+        title="Residential Projects in Ahmedabad | K.S. Developers Portfolio"
+        description="Discover residential and commercial developments by K.S. Developers in Ahmedabad. Explore flagship project K S Kashi Hills 2 BHK homes in Enasan."
+        keywords="Projects by K.S. Developers, 2 BHK Flats Ahmedabad, Residential Projects Naroda, New Construction Enasan Ahmedabad, Commercial Shops Enasan"
+        canonicalPath="/projects"
+      />
+
       {/* Hero (Deep Teal) */}
       <section className="section section-teal-dark">
         <KashiPattern opacity={0.06} color="#FFFFFF" />

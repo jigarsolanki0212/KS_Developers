@@ -6,6 +6,8 @@ import { getAssetUrl } from '../config/assets';
 import { SectionEyebrow, GoldLine, KashiPattern, ArchitecturalFrame } from '../components/common/Decorative';
 import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { LazyImage } from '../components/common/LazyImage';
+import { SEOHead } from '../components/common/SEOHead';
+import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
 
 interface HomePageProps {
   onOpenScheduleModal: () => void;
@@ -15,6 +17,12 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenLightbox }) => {
   return (
     <div className="home-page">
+      <SEOHead
+        title="K.S. Developers | Premium 2 BHK Flats in Naroda & Enasan Ahmedabad | Kashi Hills"
+        description="Buy 2 BHK flats & shops in Enasan, Naroda Ahmedabad by K.S. Developers. AUDA & GujRERA approved (PR/GJ/AHMEDABAD/DASKROI/AUDA/MAA09995/310322). Maximum carpet area, garden, lift, bank loan approved."
+        keywords="2 BHK Flat in Naroda Ahmedabad, Buy 2 BHK Home Enasan, K S Kashi Hills, Kashi Hills Ahmedabad, Flats near Naroda Dehgam Road, AUDA approved 2 BHK flats Ahmedabad, K.S. Developers Ahmedabad, Ready to move flats Naroda"
+      />
+
       {/* 1. HERO SECTION (Deep Teal Cinematic Experience) */}
       <section className="hero-corporate">
         <div className="hero-bg-container">
@@ -302,7 +310,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenScheduleModal, onOpenL
         </div>
       </section>
 
-      {/* 6. CALL TO ACTION */}
+      {/* 6. HOME BUYER FAQS & ADVISORY (AI & Location Search Optimization) */}
+      <BuyerFAQSection />
+
+      {/* 7. CALL TO ACTION */}
       <section className="section section-white" style={{ borderTop: '1px solid var(--kashi-border)' }}>
         <div className="container">
           <RevealOnScroll direction="up">

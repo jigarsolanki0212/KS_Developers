@@ -21,6 +21,8 @@ import { BrochureViewer } from '../components/kashi-hills/BrochureViewer';
 import { SectionEyebrow, GoldLine, KashiPattern, ArchitecturalFrame } from '../components/common/Decorative';
 import { RevealOnScroll } from '../components/common/RevealOnScroll';
 import { LazyImage } from '../components/common/LazyImage';
+import { SEOHead } from '../components/common/SEOHead';
+import { BuyerFAQSection } from '../components/common/BuyerFAQSection';
 
 interface KashiHillsPageProps {
   onOpenScheduleModal: () => void;
@@ -35,6 +37,13 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
 }) => {
   return (
     <div className="project-page">
+      <SEOHead
+        title="K S Kashi Hills | 2 BHK Flats & Shops in Enasan Ahmedabad | K.S. Developers"
+        description="Buy 2 BHK residences & retail shops at K S Kashi Hills in Enasan, Naroda-Dehgam corridor, Ahmedabad. 595.78 to 617.09 sq.ft carpet area, 2 lifts per block, garden, AUDA approved, GujRERA PR/GJ/AHMEDABAD/DASKROI/AUDA/MAA09995/310322."
+        keywords="K S Kashi Hills, Kashi Hills Enasan, 2 BHK Flat in Naroda Ahmedabad, Buy Flat in Enasan, Flats near Sahaj Hospital Enasan, AUDA approved 2 BHK flats Ahmedabad, 2 BHK Naroda Dehgam Road, GujRERA PR/GJ/AHMEDABAD/DASKROI/AUDA/MAA09995/310322"
+        canonicalPath="/projects/kashi-hills"
+      />
+
       {/* 1. HERO SECTION (Deep Teal Background + Gold Typography + Brochure Messaging) */}
       <section className="hero-project">
         <div className="hero-bg-container">
@@ -453,7 +462,10 @@ export const KashiHillsPage: React.FC<KashiHillsPageProps> = ({
         </div>
       </section>
 
-      {/* 12. CONTACT CTA (Deep Teal Full-width Section) */}
+      {/* 12. BUYER FAQS & ADVISORY SECTION (SEO & AI Search Target) */}
+      <BuyerFAQSection />
+
+      {/* 13. CONTACT CTA (Deep Teal Full-width Section) */}
       <section className="section section-teal-dark">
         <KashiPattern opacity={0.06} color="#FFFFFF" />
 

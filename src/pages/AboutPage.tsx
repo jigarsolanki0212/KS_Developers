@@ -4,6 +4,7 @@ import { Calendar } from 'lucide-react';
 import { corporateData } from '../config/projects';
 import { getAssetUrl } from '../config/assets';
 import { SectionEyebrow, GoldLine, KashiPattern, ArchitecturalFrame } from '../components/common/Decorative';
+import { SEOHead } from '../components/common/SEOHead';
 
 interface AboutPageProps {
   onOpenScheduleModal: () => void;
@@ -12,6 +13,13 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenScheduleModal }) => {
   return (
     <div className="about-page" style={{ paddingTop: 'var(--header-height)' }}>
+      <SEOHead
+        title="About K.S. Developers | Premium Real Estate Developer Ahmedabad"
+        description="Learn about K.S. Developers — a leading Ahmedabad developer committed to architectural integrity, honest materiality, RERA compliance, and quality residential living in Enasan."
+        keywords="About K.S. Developers, Real Estate Developer Ahmedabad, Builders in Naroda, K.S. Developers Enasan Ahmedabad, RERA Real Estate Ahmedabad"
+        canonicalPath="/about"
+      />
+
       {/* Hero (Deep Teal) */}
       <section className="section section-teal-dark">
         <KashiPattern opacity={0.06} color="#FFFFFF" />

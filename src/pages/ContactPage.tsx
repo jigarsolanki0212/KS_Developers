@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, MessageCircle, MapPin, Calendar, CheckCircle2, ShieldCheck, Phone, Building } from 'lucide-react';
 import { corporateData, kashiHillsProject } from '../config/projects';
 import { SectionEyebrow, GoldLine, KashiPattern } from '../components/common/Decorative';
+import { SEOHead } from '../components/common/SEOHead';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -22,6 +23,13 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="contact-page" style={{ paddingTop: 'var(--header-height)' }}>
+      <SEOHead
+        title="Contact K.S. Developers | Site Office & Inquiries in Enasan Ahmedabad"
+        description="Get in touch with K.S. Developers sales & engineering desk. Schedule a guided walkthrough of K S Kashi Hills 2 BHK flats in Enasan, Naroda-Dehgam corridor."
+        keywords="Contact K.S. Developers, Kashi Hills Site Office, Phone Number K.S. Developers, Enasan Flat Inquiry, Schedule Site Visit Ahmedabad"
+        canonicalPath="/contact"
+      />
+
       {/* Hero (Deep Teal) */}
       <section className="section section-teal-dark">
         <KashiPattern opacity={0.06} color="#FFFFFF" />
